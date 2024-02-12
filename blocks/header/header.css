@@ -4,6 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  border-bottom: 1px solid var(--highlight-background-color);
 }
 
 header nav {
@@ -15,9 +16,9 @@ header nav {
   align-items: center;
   gap: 0 2em;
   margin: auto;
-  max-width: 1264px;
+  max-width: 1280px;
   height: var(--nav-height);
-  padding: 0 1rem;
+  padding: 1rem 1rem;
   font-family: var(--body-font-family);
 }
 
@@ -28,6 +29,13 @@ header nav[aria-expanded="true"] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100vh;
+}
+
+@media (min-width: 900px) {
+  header nav {
+    margin: 16px auto;
+    height: var(--nav-height);
+  }
 }
 
 @media (width >= 600px) {
