@@ -1,2 +1,5 @@
-mappings:
- - /content/securbank/:/
+{
+  "mappings": [
+    "/content/securbank/:/"
+  ]
+}
