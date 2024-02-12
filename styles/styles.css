@@ -10,17 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: white;
-  --light-color: #eee;
-  --dark-color: #ccc;
-  --text-color: black;
+  --link-color: #0296A6;
+  --link-hover-color: #3E6470;
+  --background-color: #fff;
+  --overlay-background-color: #eee;
+  --highlight-background-color: #ccc;
+  --text-color: #2C2C2C;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: 'adobe-clean', helvetica, ubuntu, roboto, noto, sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -38,7 +38,7 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 40px;
 }
 
 @font-face {
@@ -48,7 +48,7 @@
   src: local('Arial');
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   :root {
     --heading-font-size-xxl: 60px;
     --heading-font-size-xl: 48px;
@@ -60,7 +60,7 @@
 }
 
 body {
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-s);
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
@@ -70,7 +70,7 @@ body {
 }
 
 body.appear {
-  display: block;
+  display: unset;
 }
 
 header {
@@ -99,12 +99,19 @@ p, dl, ol, ul, pre, blockquote {
   margin-bottom: 1em;
 }
 
-code, pre {
+hr {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border: 0;
+  border-bottom: 1px solid var(--overlay-background-color);
+}
+
+code, pre, samp {
   font-family: var(--fixed-font-family);
   font-size: var(--body-font-size-s);
 }
 
-code {
+code, samp {
   padding: .125em;
 }
 
@@ -185,26 +192,54 @@ main img {
   width: 100%;
 }
 
-/* sections */
-main .section {
-  padding: 64px 16px;
+.icon svg {
+  height: 100%;
+  width: 100%;
 }
 
-@media (width >= 600px) {
+.icon-securbank_logo {
+  width: 128px;
+  height: 48px;
+}
+
+@media (min-width: 900px) {
+  .icon-securbank_logo {
+    width: 100%;
+    height: 100%;
+  }
+  
+}
+
+
+main .section {
+  padding: 12px 0;
+}
+
+@media (min-width: 600px) {
   main .section {
-    padding: 64px 32px;
+    padding: 18px 0;
   }
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   .section > div {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: auto;
   }
 }
 
+
 /* section metadata */
-main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--highlight-background-color);
 }
+
+.default-content-wrapper h2 {
+  text-align: center;
+  font-size: 36px;
+}
+
+
+main .columns-container  {
+  background-color: #F3F2F6;
+} 
