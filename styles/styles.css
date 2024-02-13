@@ -48,7 +48,7 @@
   src: local('Arial');
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   :root {
     --heading-font-size-xxl: 60px;
     --heading-font-size-xl: 48px;

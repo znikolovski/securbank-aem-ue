@@ -25,12 +25,9 @@ main .hero .hero-body {
 
 main .hero h1 {
   max-width: 1280px;
-  margin-top: 106px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0;
+  margin: 106px auto 0;
   color: white;
-  font: normal normal normal 48px/52px 'adobe-clean';
+  font: normal normal normal 48px/52px adobe-clean, sans-serif;
 }
 
 main .hero h2 {
@@ -39,7 +36,7 @@ main .hero h2 {
   margin-left: auto;
   margin-right: auto;
   color: white;
-  font: normal normal 900 48px/52px 'adobe-clean';
+  font: normal normal 900 48px/52px adobe-clean, sans-serif;
 }
 
 main .hero picture {
@@ -59,7 +56,7 @@ main .hero picture::after {
   left:0; top:0;
   width:100%; height:100%;
   display:inline-block; 
-  background: linear-gradient(to right, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.0))
+  background: linear-gradient(to right, rgba(0,0,0,50%) 40%, rgba(0,0,0,0%))
    }
 
 
