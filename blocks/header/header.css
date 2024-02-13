@@ -18,7 +18,7 @@ header nav {
   margin: auto;
   max-width: 1280px;
   height: var(--nav-height);
-  padding: 1rem 1rem;
+  padding: 1rem;
   font-family: var(--body-font-family);
 }
 
@@ -31,14 +31,7 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
-@media (min-width: 900px) {
-  header nav {
-    margin: 16px auto;
-    height: var(--nav-height);
-  }
-}
-
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   header nav {
   padding: 0;
   }
@@ -49,6 +42,8 @@ header nav[aria-expanded="true"] {
   header nav {
     display: flex;
     justify-content: space-between;
+    margin: 16px auto;
+    height: var(--nav-height);
   }
 
   header nav[aria-expanded="true"] {
