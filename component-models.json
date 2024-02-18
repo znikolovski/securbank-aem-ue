@@ -209,6 +209,13 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "text-area",
+        "name": "text2",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   }
