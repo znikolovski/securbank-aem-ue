@@ -2,10 +2,9 @@
 export default async function decorate(block) {
     const aempublishurl = 'https://publish-p123917-e1220159.adobeaemcloud.com';
     const persistedquery = '/graphql/execute.json/securbank/OfferByPath';
-    const cfpath = '/content/dam/securbank/en/offers/';
     const offerid = block.querySelector(':scope div:nth-child(1) > div a').innerHTML;
-    //const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML;
-    const url = `${aempublishurl}${persistedquery};path=${offerid};variation=main;ts=${Math.random() * 1000}`;
+    const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML;
+    const url = `${aempublishurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`;
     const options = {};
   
     const cfReq = await fetch(url, options)
@@ -18,7 +17,7 @@ export default async function decorate(block) {
         return offer;
       });
 
-    //console.log(variationname);
+    console.log(variationname);
   
     block.innerHTML = `
     <div class='banner-content'>

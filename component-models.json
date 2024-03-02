@@ -256,7 +256,7 @@
       {
         "component": "text-input",
         "name": "variation",
-        "value": "main",
+        "value": "",
         "label": "Variation",
         "valueType": "string"
       }
