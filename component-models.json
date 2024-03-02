@@ -248,9 +248,9 @@
     "fields": [
       {
         "component": "aem-content-fragment",
-        "name": "test",
+        "name": "offerpath",
         "value": "",
-        "label": "Test",
+        "label": "Offer Content Fragment path",
         "valueType": "string"
       }
     ]
