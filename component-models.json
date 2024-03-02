@@ -252,6 +252,13 @@
         "value": "",
         "label": "Offer Content Fragment path",
         "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "variation",
+        "value": "main",
+        "label": "Variation",
+        "valueType": "string"
       }
     ]
   },
