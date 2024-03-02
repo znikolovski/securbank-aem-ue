@@ -230,5 +230,41 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "map",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "location",
+        "value": "",
+        "label": "Location",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "offer",
+    "fields": [
+      {
+        "component": "aem-content-fragment",
+        "name": "offerpath",
+        "value": "",
+        "label": "Offer Content Fragment path",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "featurearticles",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tag",
+        "value": "",
+        "label": "Tag",
+        "valueType": "string"
+      }
+    ]
   }
 ]
