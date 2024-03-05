@@ -14,7 +14,7 @@
   margin: 0;
 }
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
     .banner-content {
         width: 1170px;
         height: 200px;
@@ -43,7 +43,7 @@
     height: 435px;
   }
 
-  @media (min-width: 600px) {
+  @media (width >= 600px) {
     .banner-content .banner-detail {
         padding: 56px 60px 60px;
     }
@@ -68,7 +68,7 @@
     margin: 0;
   }
 
-  @media (min-width: 600px) {
+  @media (width >= 600px) {
     .banner1300x435 .banner-content .banner-detail .headline {
       font-size: 48px;
       line-height: 48px;
@@ -106,7 +106,7 @@
     display: none;
     }
 
-  @media (min-width: 600px) {
+  @media (width >= 600px) {
   .banner-content .banner-logo {
     display: block;
     width: 400px;

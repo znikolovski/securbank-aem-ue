@@ -15,9 +15,9 @@ main .forex-container > div {
     box-sizing: border-box;
   }
 
-  @media (min-width: 1280px) {
+  @media (width >= 1280px) {
     main .forex {
-        padding: 0px;
+        padding: 0;
       }
   }
 
@@ -25,7 +25,6 @@ main .forex-container > div {
     padding: 0;
     margin: 0;
     gap: 2em;
-    margin: 0;
     box-sizing: border-box;
     table-layout: auto;
     width: 400px;

@@ -36,10 +36,10 @@ footer .columns > div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 0px;
+  gap: 0;
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   footer .columns > div {
     flex-direction: row;
     gap: 160px;
