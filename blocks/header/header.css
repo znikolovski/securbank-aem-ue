@@ -18,7 +18,7 @@ header nav {
   margin: auto;
   max-width: 1280px;
   height: var(--nav-height);
-  padding: 1rem;
+  padding: 0 1rem;
   font-family: var(--body-font-family);
 }
 
@@ -42,7 +42,7 @@ header nav[aria-expanded="true"] {
   header nav {
     display: flex;
     justify-content: space-between;
-    margin: 16px auto;
+    margin: 0px auto;
     height: var(--nav-height);
   }
 
