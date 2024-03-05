@@ -23,7 +23,7 @@ export default async function decorate(block) {
       return offer;
     });
 
-  const itemId = `urn:aemconnection:${offerid}/jcr:content/data/master`;
+  const itemId = `urn:aemconnection:${offerpath}/jcr:content/data/master`;
 
   block.innerHTML = `
   <div class='banner-content' data-aue-resource=${itemId} data-aue-type="reference" data-aue-filter="cf">
