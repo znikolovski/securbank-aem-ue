@@ -15,6 +15,7 @@ export default async function decorate(block) {
 
   const callOutWrapper = document.createElement('div');
   callOutWrapper.classList.add('feature-callout-wrapper');
+  /* eslint prefer-destructuring: ["error", {VariableDeclarator: {object: true}}] */
   row = block.getElementsByTagName('div')[4];
   const placeholders = await fetchPlaceholders('');
   const { interestrate } = placeholders;
