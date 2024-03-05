@@ -1,10 +1,14 @@
 /* eslint-disable no-underscore-dangle */
 export default async function decorate(block) {
   const aempublishurl = 'https://publish-p123917-e1220159.adobeaemcloud.com';
+  const aemauthorurl = 'https://publish-p123917-e1220159.adobeaemcloud.com';
   const persistedquery = '/graphql/execute.json/securbank/OfferByPath';
   const offerid = block.querySelector(':scope div:nth-child(1) > div a').innerHTML;
   const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML;
   const url = `${aempublishurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`;
+  if(window.location && window.location.ancestorOrigins.length > 0) {
+    url = `${aemauthorurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`
+  }
   const options = {};
 
   const cfReq = await fetch(url, options)
@@ -17,7 +21,7 @@ export default async function decorate(block) {
       return offer;
     });
 
-  const itemId = "urn:aemconnection:" + offerid + "/jcr:content/data/master";
+  const itemId = `urn:aemconnection:${offerid}/jcr:content/data/master`;
 
   block.innerHTML = `
   <div class='banner-content' data-aue-resource=${itemId} data-aue-type="reference" data-aue-filter="cf">
