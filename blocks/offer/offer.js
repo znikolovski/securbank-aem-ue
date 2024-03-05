@@ -9,7 +9,7 @@ export default async function decorate(block) {
   const url = window.location && window.location.origin && window.location.origin.includes('author') ?
   `${aemauthorurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}` :
   `${aempublishurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`;
-  const options = {};
+  const options = {credentials: "include"};
 
   const cfReq = await fetch(url, options)
     .then((response) => response.json())
