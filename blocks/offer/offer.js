@@ -4,7 +4,7 @@ export default async function decorate(block) {
   const aemauthorurl = 'https://author-p123917-e1220159.adobeaemcloud.com';
   const persistedquery = '/graphql/execute.json/securbank/OfferByPath';
   const offerid = block.querySelector(':scope div:nth-child(1) > div a').innerHTML;
-  const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML;
+  const variationname = 'main';
 
   const url = window.location && window.location.origin && window.location.origin.includes('author') ?
   `${aemauthorurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}` :
