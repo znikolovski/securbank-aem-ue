@@ -5,7 +5,7 @@ export default async function decorate(block) {
   const persistedquery = '/graphql/execute.json/securbank/OfferByPath';
   const offerid = block.querySelector(':scope div:nth-child(1) > div a').innerHTML;
   const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML;
-  const url = `${aempublishurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`;
+  let url = `${aempublishurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`;
   if(window.location && window.location.ancestorOrigins.length > 0) {
     url = `${aemauthorurl}${persistedquery};path=${offerid};variation=${variationname};ts=${Math.random() * 1000}`
   }
