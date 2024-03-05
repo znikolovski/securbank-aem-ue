@@ -18,9 +18,12 @@ export default async function decorate(block) {
   const callOutWrapper = document.createElement('div');
   callOutWrapper.classList.add('feature-callout-wrapper');
   row = block.getElementsByTagName('div')[4];
+  const placeholders = await fetchPlaceholders('');
+  const { interestrate } = placeholders;
+  console.log(interestrate)
   const interest = document.createElement('p');
   interest.classList.add('feature-interest-rate');
-  interest.innerHTML = `<strong>3.75%</strong><sup>APR</sup>`;
+  interest.innerHTML = `<strong>${interestrate}%</strong><sup>APR</sup>`;
   callOutWrapper.appendChild(interest);
 
   callOutWrapper.append(row);
