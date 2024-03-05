@@ -1,5 +1,5 @@
 .section > .feature-wrapper {
-    margin: 80px auto 0px;
+    margin: 80px auto 0;
     max-width: 1920px;
     
   }
@@ -47,7 +47,7 @@
     left:0; top:0;
     width:100%; height:500px;
     display:inline-block; 
-    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.0))
+    background: linear-gradient(to right, rgba(0,0,0,70%), rgba(0,0,0,0%))
   }
   
   .feature-content-container {
