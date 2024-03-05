@@ -197,14 +197,14 @@ main img {
   width: 100%;
 }
 
-/* stylelint-disable-line selector-class-pattern */
+/* stylelint-disable-next-line selector-class-pattern */
 .icon-securbank_logo {
   width: 128px;
   height: 48px;
 }
 
 @media (width >= 900px) {
-  /* stylelint-disable-line selector-class-pattern */
+  /* stylelint-disable-next-line selector-class-pattern */
   .icon-securbank_logo {
     width: 100%;
     height: 100%;
