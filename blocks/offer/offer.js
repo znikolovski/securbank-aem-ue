@@ -1,13 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 export default async function decorate(block) {
   const aempublishurl = 'https://publish-p123917-e1220159.adobeaemcloud.com';
-  const aemauthorurl = 'https://publish-p123917-e1220159.adobeaemcloud.com'; // Temp using Publish URL 
+  const aemauthorurl = 'https://publish-p123917-e1220159.adobeaemcloud.com'; // Temp using Publish URL
   const persistedquery = '/graphql/execute.json/securbank/OfferByPath';
   const offerpath = block.querySelector(':scope div:nth-child(1) > div a').innerHTML.trim();
   const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML.trim();
 
-  const url = window.location && window.location.origin && window.location.origin.includes('author') 
-    ? `${aemauthorurl}${persistedquery};path=${offerpath};variation=${variationname};ts=${Math.random() * 1000}` 
+  const url = window.location && window.location.origin && window.location.origin.includes('author')
+    ? `${aemauthorurl}${persistedquery};path=${offerpath};variation=${variationname};ts=${Math.random() * 1000}`
     : `${aempublishurl}${persistedquery};path=${offerpath};variation=${variationname};ts=${Math.random() * 1000}`;
   const options = { credentials: 'include' };
 
