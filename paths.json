@@ -1,6 +1,7 @@
 {
   "mappings": [
     "/content/securbank/:/",
-    "/content/securbank/placeholders:/placeholders.json"
+    "/content/securbank/placeholders:/placeholders.json",
+    "/graphql:/graphql"
   ]
 }
