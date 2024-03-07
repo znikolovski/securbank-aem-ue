@@ -46,8 +46,7 @@ export function decorateRichtext(container = document) {
     }
 
     if (orphanElements.length) {
-      // console.warn('Found orphan elements of a richtext, that were not consecutive siblings of ' + 'the first paragraph', orphanElements);
-      orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
+       orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
     } else {
       const group = document.createElement('div');
       if (richtextResource) group.dataset.aueResource = richtextResource;
