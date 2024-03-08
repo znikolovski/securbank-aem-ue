@@ -131,3 +131,99 @@
   width: 386px;
   height: 280px;
 }
+
+.wide-cards .cards > ul {
+  display: flex;
+  flex-direction: column;
+  display: block;
+}
+
+.wide-cards .cards > ul > li {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  text-align: left;
+  justify-content: center;
+  border:none;
+}
+
+.wide-cards .cards > ul > li:nth-child( even ) {
+  flex-direction: row-reverse;
+}
+
+.wide-cards ul li picture img {
+  width: 620px;
+  aspect-ratio: 16 / 8;
+}
+
+.wide-cards .cards-card-image {
+  padding-top: 100px;
+  width: 100%;
+}
+
+
+@media (min-width: 960px) {
+  .wide-cards ul li picture img {
+    width: 620px;
+    aspect-ratio: 16/8;
+  }
+
+  .wide-cards .cards-card-image {
+    padding-top: 66px;
+    width: 620px;
+}
+}
+
+.wide-cards .cards-card-body {
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+@media (width >= 960px) {
+  .wide-cards .cards-card-body {
+  width: 660px;
+  margin: 0;
+  margin-top: 50px;
+  box-sizing: border-box;
+  }
+}
+
+.wide-cards > ul > li:nth-child(odd) .cards-card-body{
+  padding: 0px;
+  width: 420px;
+}
+
+.wide-cards .cards-card-body h3 {
+  font-size: 36px;
+}
+
+.wide-cards .cards > ul > li:nth-child(even) .cards-card-body{
+  padding: 0px;
+  width: 420px;
+}
+
+
+.wide-cards .cards-card-body ul li{
+  list-style: none;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: adobe-clean, sans-serif;
+}
+
+.wide-cards .cards-card-body ul li::before {
+    content: "•"; 
+    color: #0296A6;
+    font-size: 48px;
+    line-height: 24px;
+    display: inline-block; width: 1em;
+    margin-left: -1em}
+
+
+.cards-wrapper:has(.wide-cards) {
+  margin: unset;
+  max-width: 100%;
+}
