@@ -40,12 +40,14 @@ export function decorateRichtext(container = document) {
       if (editable) {
         orphanElements = editable.querySelectorAll(`[data-richtext-prop="${richtextProp}"]`);
       } else {
-        // console.warn(`Editable parent not found or richtext property ${richtextProp}`);
+        console.warn(`Editable parent not found or richtext property ${richtextProp}`);
         return;
       }
     }
 
     if (orphanElements.length) {
+      console.warn('Found orphan elements of a richtext, that were not consecutive siblings of '
+        + 'the first paragraph', orphanElements);
       orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
     } else {
       const group = document.createElement('div');
@@ -60,5 +62,10 @@ export function decorateRichtext(container = document) {
     }
   }
 }
+
+// in cases where the block decoration is not done in one synchronous iteration we need to listen
+// for new richtext-instrumented elements
+const observer = new MutationObserver(() => decorateRichtext());
+observer.observe(document, { attributeFilter: ['data-richtext-prop'], subtree: true });
 
 decorateRichtext();
