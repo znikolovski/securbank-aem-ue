@@ -292,5 +292,17 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "fragment",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "fragmentpath",
+        "value": "",
+        "label": "Fragment Path",
+        "valueType": "string"
+      }
+    ]
   }
 ]
