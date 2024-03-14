@@ -304,5 +304,49 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text",
+        "name": "experiment",
+        "label": "Experiment",
+        "description": "Start an expriement by setting an Experiment ID"
+      },
+      {
+        "component": "select",
+        "name": "experimentStatus",
+        "label": "Experiment Status",
+        "options": [
+          {
+            "name": "Active",
+            "value": "active"
+          },
+          {
+            "name": "Inactive",
+            "value": "inactive"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "experimentSplit",
+        "label": "Experiment Split",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "name": "experimentAudience",
+        "label": "Experiment Audience",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "name": "experimentVariants",
+        "label": "Experiment Variants",
+        "multi": true
+      }
+    ]
   }
 ]
