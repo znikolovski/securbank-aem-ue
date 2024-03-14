@@ -22,13 +22,8 @@ const AUDIENCES = {
 
 // Define an execution context
 const pluginContext = {
-  getAllMetadata,
-  getMetadata,
   loadCSS,
-  loadScript,
-  sampleRUM,
-  toCamelCase,
-  toClassName,
+  sampleRUM
 };
 
 window.hlx.plugins.add('experimentation', {
