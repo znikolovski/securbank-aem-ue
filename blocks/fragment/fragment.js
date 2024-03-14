@@ -44,9 +44,8 @@ export async function loadFragment(path) {
 export default async function decorate(block) {
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();
-  const host = "https://main--securbank-aem-ue--markszulc.hlx.live";
-  console.log("Loading Fragment.." + host + path);
-  const fragment = await loadFragment(host + path);
+  console.log("Loading Fragment.. " + path);
+  const fragment = await loadFragment(path);
   if (fragment) {
     const fragmentSection = fragment.querySelector(':scope .section');
     if (fragmentSection) {
