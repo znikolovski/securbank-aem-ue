@@ -297,7 +297,7 @@
     "id": "fragment",
     "fields": [
       {
-        "component": "aem-content",
+        "component": "aem-experience-fragment",
         "name": "fragmentpath",
         "value": "",
         "label": "Fragment Path",
