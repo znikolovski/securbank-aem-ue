@@ -1,5 +1,7 @@
 import {
   sampleRUM,
+  getMetadata,
+  loadScript,
   loadHeader,
   loadFooter,
   decorateButtons,
@@ -10,6 +12,8 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  toCamelCase,
+  toClassName
 } from './aem.js';
 
 
@@ -20,19 +24,32 @@ const AUDIENCES = {
 };
 
 
+/**
+ * Gets all the metadata elements that are in the given scope.
+ * @param {String} scope The scope/prefix for the metadata
+ * @returns an array of HTMLElement nodes that match the given scope
+ */
+export function getAllMetadata(scope) {
+  return [...document.head.querySelectorAll(`meta[property^="${scope}:"],meta[name^="${scope}-"]`)]
+    .reduce((res, meta) => {
+      const id = toClassName(meta.name
+        ? meta.name.substring(scope.length + 1)
+        : meta.getAttribute('property').split(':')[1]);
+      res[id] = meta.getAttribute('content');
+      return res;
+    }, {});
+}
+
 // Define an execution context
 const pluginContext = {
+  getAllMetadata,
+  getMetadata,
   loadCSS,
-  sampleRUM
+  loadScript,
+  sampleRUM,
+  toCamelCase,
+  toClassName,
 };
-
-window.hlx.plugins.add('experimentation', {
-  condition: () => getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length,
-  options: { audiences: AUDIENCES },
-  url: '/plugins/experimentation/src/index.js',
-});
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -117,11 +134,6 @@ async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
-  if (main) {
-    decorateMain(main);
-    document.body.classList.add('appear');
-    await waitForLCP(LCP_BLOCKS);
-  }
 
   if (getMetadata('experiment')
     || Object.keys(getAllMetadata('campaign')).length
@@ -129,6 +141,13 @@ async function loadEager(doc) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
     await runEager(document, { audiences: AUDIENCES }, pluginContext);
+  }
+
+
+  if (main) {
+    decorateMain(main);
+    document.body.classList.add('appear');
+    await waitForLCP(LCP_BLOCKS);
   }
 
   try {
@@ -163,8 +182,8 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
-    // Add below snippet at the end of the lazy phase
-    if ((getMetadata('experiment')
+  // Add below snippet at the end of the lazy phase
+  if ((getMetadata('experiment')
     || Object.keys(getAllMetadata('campaign')).length
     || Object.keys(getAllMetadata('audience')).length)) {
     // eslint-disable-next-line import/no-relative-packages
