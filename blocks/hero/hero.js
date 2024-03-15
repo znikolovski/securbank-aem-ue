@@ -5,7 +5,6 @@ export default async function decorate(block) {
   row.remove();
   const bgP = block.closest('p');
   if (bgP) bgP.remove();
-
   row = block.firstElementChild;
   row.classList.add('hero-body');
 }

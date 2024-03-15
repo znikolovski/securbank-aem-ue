@@ -263,6 +263,25 @@
     ]
   },
   {
+    "id": "creditcardsummary",
+    "fields": [
+      {
+        "component": "aem-content-fragment",
+        "name": "contentfragmentpath",
+        "value": "",
+        "label": "Credit Card Content Fragment path",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "variation",
+        "value": "",
+        "label": "Variation",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "featurearticles",
     "fields": [
       {
@@ -271,6 +290,62 @@
         "value": "",
         "label": "Tag",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fragment",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "fragmentpath",
+        "value": "",
+        "label": "Fragment Path",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text",
+        "name": "experiment",
+        "label": "Experiment",
+        "description": "Start an expriement by setting an Experiment ID"
+      },
+      {
+        "component": "select",
+        "name": "experimentStatus",
+        "label": "Experiment Status",
+        "options": [
+          {
+            "name": "Active",
+            "value": "active"
+          },
+          {
+            "name": "Inactive",
+            "value": "inactive"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "experimentSplit",
+        "label": "Experiment Split",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "name": "experimentAudience",
+        "label": "Experiment Audience",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "name": "experimentVariants",
+        "label": "Experiment Variants",
+        "multi": true
       }
     ]
   }

@@ -15,7 +15,8 @@
       "text",
       "image",
       "button",
-      "title"
+      "title",
+      "creditcardsummary"
     ]
   },
   {
@@ -32,7 +33,9 @@
       "forex",
       "map",
       "offer",
-      "featurearticles"
+      "creditcardsummary",
+      "featurearticles",
+      "fragment"
     ]
   },
   {

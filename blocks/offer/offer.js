@@ -28,8 +28,8 @@ export default async function decorate(block) {
   block.innerHTML = `
   <div class='banner-content' data-aue-resource=${itemId} data-aue-type="reference" data-aue-filter="cf">
       <div data-aue-prop="heroImage" data-aue-type="media" class='banner-detail' style="background-image: linear-gradient(90deg,rgba(0,0,0,0.6), rgba(0,0,0,0.1) 80%) ,url(${aempublishurl + cfReq.heroImage._dynamicUrl});">
-          <p class='pretitle'>${cfReq.pretitle}</p>
-          <p data-aue-prop="headline" data-aue-type="text" class='headline'>${cfReq.headline}</p>
+          <p class='pretitle'>${cfReq.headline}</p>
+          <p data-aue-prop="headline" data-aue-type="text" class='headline'>${cfReq.pretitle}</p>
           <p data-aue-prop="detail" data-aue-type="richtext" class='detail'>${cfReq.detail.plaintext}</p>
       </div>
       <div class='banner-logo'>
