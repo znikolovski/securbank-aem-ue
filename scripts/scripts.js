@@ -18,8 +18,8 @@ import {
 
 
 const AUDIENCES = {
-  mobile: () => window.innerWidth < 600,
-  desktop: () => window.innerWidth >= 600,
+  authenticated: () => window.localStorage.getItem("auth") !== null,
+  unauthenticated: () => window.localStorage.getItem("auth") === null,
   // define your custom audiences here as needed
 };
 
