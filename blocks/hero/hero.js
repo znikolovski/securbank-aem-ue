@@ -11,7 +11,8 @@ export default async function decorate(block) {
   if (bgP) bgP.remove();
   row = block.firstElementChild;
   row.classList.add('hero-body');
-  moveInstrumentation(block, row);
+  const content = document.getElementsByClassName('hero-body')[0].children[0].children[0].children[0];
+  moveInstrumentation(row, content);
   window.localStorage.getItem("auth") === null ? decorateUnAuthenticatedState(row) : decorateAuthenticatedState(row, JSON.parse(window.localStorage.getItem("auth")))
 }
 
