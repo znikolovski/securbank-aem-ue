@@ -27,7 +27,7 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "fileReference",
+        "name": "image/fileReference",
         "label": "Thumbnail"
       }
     ]
