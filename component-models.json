@@ -24,13 +24,11 @@
         "label": "Keywords",
         "multi": true
       },
-      
       {
-        "component": "aem-tag",
+        "component": "reference",
         "valueType": "string",
-        "name": "cq:tags",
-        "label": "Tags",
-        "rootPath": "/content/cq:tags"
+        "name": "fileReference",
+        "label": "Thumbnail"
       }
     ]
   },
