@@ -10,19 +10,27 @@
         "label": "Page Title"
       },
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "jcr:description",
         "value": "",
         "label": "Description"
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "keywords",
+        "value": "",
+        "label": "Keywords",
+        "multi": true
+      },
+      
+      {
         "component": "aem-tag",
         "valueType": "string",
         "name": "cq:tags",
         "label": "Tags",
-        "rootPath": "/content/cq:tags",
-        "description": "Adds tags page meta."
+        "rootPath": "/content/cq:tags"
       }
     ]
   },
