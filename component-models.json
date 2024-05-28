@@ -1,5 +1,32 @@
 [
   {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "pageTitle",
+        "value": "",
+        "label": "Page Title"
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "jcr:description",
+        "value": "",
+        "label": "Description"
+      },
+      {
+        "component": "aem-tag",
+        "valueType": "string",
+        "name": "cq:tags",
+        "label": "Tags",
+        "rootPath": "/content/cq:tags",
+        "description": "Adds tags page meta."
+      }
+    ]
+  },
+  {
     "id": "title",
     "fields": [
       {
