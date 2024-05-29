@@ -23,12 +23,6 @@
         "value": "",
         "label": "Keywords",
         "multi": true
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image/fileReference",
-        "label": "Thumbnail"
       }
     ]
   },
