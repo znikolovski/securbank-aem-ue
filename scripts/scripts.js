@@ -43,7 +43,7 @@ const martechLoadedPromise = initMartech(
   },
   // The library config
   {
-    launchUrls: ['https://assets.adobedtm.com/59610d662d36/38d84bddc410/launch-987c124fa82d.min.js%22'],
+    launchUrls: ['https://assets.adobedtm.com/59610d662d36/38d84bddc410/launch-987c124fa82d.min.js'],
     personalization: !!getMetadata('target'),
   },
 );
