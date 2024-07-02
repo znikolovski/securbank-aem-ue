@@ -1,6 +1,7 @@
 /* eslint-disable no-fallthrough */
 import { createRange } from './range.js';
 import { applyRuleEngine } from './rules/index.js';
+import formData from './data/form-data.js';
 
 const validityKeyMsgMap = {
   typeMismatch: 'ErrorMessageInvalid',
@@ -210,8 +211,9 @@ function idGenerator(duplicateNameMap, name) {
 
 async function createForm(formURL) {
   const { pathname } = new URL(formURL);
-  const resp = await fetch(formURL);
-  const json = await resp.json();
+  // const resp = await fetch(formURL);
+  // const json = await resp.json();
+  const json = formData;
   const form = document.createElement('form');
   form.setAttribute('novalidate', 'true');
   // eslint-disable-next-line prefer-destructuring
