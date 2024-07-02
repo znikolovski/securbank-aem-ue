@@ -122,7 +122,7 @@ function createButton(fd) {
   button.textContent = fd.Label;
   button.type = fd.Type;
   button.classList.add('button');
-  button.dataset.redirect = fd.redirect || 'thankyou';
+  button.dataset.redirect = fd.redirect || '/';
   button.name = fd.Name;
   return button;
 }
@@ -210,12 +210,12 @@ function idGenerator(duplicateNameMap, name) {
 
 async function createForm(formURL) {
   const { pathname } = new URL(formURL);
-  const resp = await fetch(pathname);
+  const resp = await fetch(formURL);
   const json = await resp.json();
   const form = document.createElement('form');
   form.setAttribute('novalidate', 'true');
   // eslint-disable-next-line prefer-destructuring
-  form.dataset.action = pathname.split('.json')[0];
+  form.dataset.action = formURL.split('.json')[0];
   const duplicateNameMap = new Map();
   let container = form;
   json.data.forEach((fd) => {
@@ -288,6 +288,6 @@ async function createForm(formURL) {
 export default async function decorate(block) {
   const form = block.querySelector("a[href$='.json']");
   if (form) {
-    form.replaceWith(await createForm(form.href));
+    form.replaceWith(await createForm(form.innerText));
   }
 }
