@@ -17,7 +17,7 @@
  * Adobe permits you to use and modify this file solely in accordance with
  * the terms of the Adobe license agreement accompanying it.
  ************************************************************************ */
-import { generateFormRendition } from '../blocks/simple-form/form.js';
+import { generateFormRendition } from '../blocks/form/form.js';
 import { loadCSS } from './aem.js';
 
 export function getItems(container) {
