@@ -1,5 +1,5 @@
 mountpoints:
   /: 
-    url: https://author-p115476-e1135027.adobeaemcloud.com/bin/franklin.delivery/znikolovski/securbank-aem-ue/main
+    url: https://author-p115476-e1135027.adobeaemcloud.com/bin/franklin.delivery/znikolovski/securbank-aem-ue/aem-forms
     type: markup
     suffix: ".html?wcmmode=disabled"
