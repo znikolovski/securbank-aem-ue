@@ -31,6 +31,8 @@
       "columns",
       "feature",
       "simple-form",
+      "form",
+      "form-embed",
       "forex",
       "map",
       "offer",
