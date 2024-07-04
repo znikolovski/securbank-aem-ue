@@ -3,33 +3,33 @@
     --form-color: #0296A6;
 }
 
-main .form {
+main .simple-form {
     background-color: white;
     padding: var(--form-color);
 }
 
-main .form form {
+main .simple-form form {
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 130px;
 }
 
-main .form form fieldset {
+main .simple-form form fieldset {
     padding: 30px 90px;
     background-color: #fff;
     margin-bottom: 30px;
     border-color: var(--form-color);
 }
-main .form form fieldset legend {
+main .simple-form form fieldset legend {
     font-weight: 400;
     font-size: 22px;
     line-height: 1.5;
     color: var(--form-color);
 }
-main .form form .form-range-wrapper  output {
+main .simple-form form .form-range-wrapper  output {
     font-size: 20px;
 }
-main .form form output {
+main .simple-form form output {
     font-size: 36px;
     line-height: 44px;
     font-weight: 800;
@@ -42,7 +42,7 @@ main .form form output {
     column-gap: 130px;
     grid-template-columns: 1fr;
 }
-main .form form .field-wrapper {
+main .simple-form form .field-wrapper {
     margin-top: 20px;
 }
 
@@ -52,13 +52,13 @@ main .form form .field-wrapper {
     padding: 5px;
  }
 
-main .form h2 {
+main .simple-form h2 {
     padding: var(--spacing-m) 0;
     font-size: var(--type-heading-l-lh);
     font-weight: normal;
 }
 
-main .form h3 {
+main .simple-form h3 {
     padding-top: var(--spacing-m);
     font-size: var(--type-heading-m-size);
     font-weight: bold;
@@ -71,13 +71,13 @@ main .form h3 {
     color: var(--error-color);
 }
 
-main .form input[type='range'] {
+main .simple-form input[type='range'] {
     height: 5px;
     accent-color: var(--form-color);
 }
-main .form input,
-main .form textarea,
-main .form select {
+main .simple-form input,
+main .simple-form textarea,
+main .simple-form select {
     width: calc(100% - 16px);
     height: 40px;
     color: #666;
@@ -86,22 +86,22 @@ main .form select {
     font-size: 1rem;
 }
 
-main .form input[type='checkbox'],
-main .form input[type='radio'] {
+main .simple-form input[type='checkbox'],
+main .simple-form input[type='radio'] {
     width: auto;
     height: auto;
 }
 
-main .form textarea {
+main .simple-form textarea {
     min-height: 100px;
 }
 
-main .form input:hover,
-main .form select:hover {
+main .simple-form input:hover,
+main .simple-form select:hover {
     border-color: rgb(90 92 96);
 }
 
-main .form label {
+main .simple-form label {
     width: 100%;
     font-size: var(--type-body-s-size);
     line-height: var(--type-body-s-lh);
@@ -112,18 +112,18 @@ main .form label {
     text-align: justify;
 }
 
-main .form label.required::after {
+main .simple-form label.required::after {
    /* content: "*"; */
     color: black;
     padding-left: 5px;
 }
 
 
-main .form .form-checkbox-wrapper input[type='checkbox'] {
+main .simple-form .form-checkbox-wrapper input[type='checkbox'] {
     display: none;
 }
 
-main .form .form-checkbox-wrapper input[type='checkbox'] + label::before {
+main .simple-form .form-checkbox-wrapper input[type='checkbox'] + label::before {
     float: left;
     margin-top: 2px;
     margin-right: 5px;
@@ -134,13 +134,13 @@ main .form .form-checkbox-wrapper input[type='checkbox'] + label::before {
     background-size: contain;
 }
 
-main .form .form-checkbox-wrapper input[type='checkbox']:checked +label::before {
+main .simple-form .form-checkbox-wrapper input[type='checkbox']:checked +label::before {
     background: url('./checkbox-checked.svg');
     background-size: contain;
     content: ' ';
 }
 
-main .form .form-checkbox-wrapper label {
+main .simple-form .form-checkbox-wrapper label {
     font-size: var(--type-body-m-size);
     line-height: var(--type-body-m-lh);
     font-weight: normal;
@@ -152,7 +152,7 @@ h1 {
     font-weight: 700;
 }
 
-main .form .button {
+main .simple-form .button {
     color: #fff;
     cursor: pointer;
     margin-top: 20px;
@@ -223,7 +223,7 @@ main .form .button {
     grid-row: 7/10;
   }
 
-  main .form form .form-radio-wrapper{
+  main .simple-form form .form-radio-wrapper{
     margin: 0;
   }
 
