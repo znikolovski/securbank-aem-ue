@@ -32,7 +32,7 @@ export default async function decorate(block) {
           <p data-aue-prop="pretitle" data-aue-type="text" class='pretitle'>${cfReq.pretitle}</p>
           <p data-aue-prop="headline" data-aue-type="text" class='headline'>${cfReq.headline}</p>
           <p data-aue-prop="detail" data-aue-type="richtext" class='detail'>${cfReq.detail.plaintext}</p>
-          <p class="button-container"><a data-aue-prop="ctaUrl" data-aue-type="text" href="${cfReq.ctaUrl._path}" title="${cfReq.callToAction}" class="button">${cfReq.callToAction}</a></p>
+          <p class="button-container"><a data-aue-prop="ctaUrl" data-aue-type="text" href="${cfReq.ctaUrl._path.replace("/content/securbank", "")}" title="${cfReq.callToAction}" class="button">${cfReq.callToAction}</a></p>
       </div>
       <div class='banner-logo'>
       </div>
