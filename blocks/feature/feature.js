@@ -21,25 +21,22 @@ export default async function decorate(block) {
 
   // console.log(url); //https://author-p123917-e1220159.adobeaemcloud.com/graphql/execute.json/securbank/OfferByPath;path=/content/dam/securbank/en/offers/997;variation=main;ts=172.03956935404463
 
-  const productId = await fetch(url, options)
+  const productData = await fetch(url, options)
     .then((response) => response.json())
-    .then((contentfragment) => {
+    .then(async (contentfragment) => {
       let product = '';
       if (contentfragment.data) {
         product = contentfragment.data.productByPath.item;
       }
       const productId = product.productReference;
+      const productQueryOptions = {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
 
-      return productId;
-    });
-
-  const productQueryOptions = {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      query: `
+      const productData = await fetch(commerceurl+'?query='+`
         {
           products(filter: { sku: { eq: "${productId}" } }) {
             items {
@@ -50,15 +47,19 @@ export default async function decorate(block) {
           }
         }
       `
-    })
-  }
-  const productData = await fetch(commerceurl, productQueryOptions)
-    .then((response) => response.json())
-    .then((product) => {
-      if (product.data && product.data.products.items.length > 0) {
-        return product.data.products.items[0];
-      }
+    , productQueryOptions)
+      .then((response) => response.json())
+      .then((product) => {
+        if (product.data && product.data.products.items.length > 0) {
+          return product.data.products.items[0];
+        }
+      });
+
+      return productData;
     });
+
+  
+  
 
   const contentWrapper = document.createElement('div');
   contentWrapper.classList.add('feature-content-wrapper');
