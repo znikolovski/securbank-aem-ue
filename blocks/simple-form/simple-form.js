@@ -225,6 +225,7 @@ async function createForm(formURL) {
     component: dataObj
   })
   form.setAttribute('novalidate', 'true');
+  form.id = 'simple-form'+randId;
   // eslint-disable-next-line prefer-destructuring
   form.dataset.action = formURL.split('.json')[0];
   const duplicateNameMap = new Map();
