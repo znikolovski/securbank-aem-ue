@@ -216,6 +216,13 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "aem-content-fragment",
+        "name": "productpath",
+        "value": "",
+        "label": "Product Content Fragment path",
+        "valueType": "string"
       }
     ]
   },

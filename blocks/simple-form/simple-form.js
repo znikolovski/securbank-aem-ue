@@ -215,6 +215,14 @@ async function createForm(formURL) {
   const json = await resp.json();
   // const json = formData;
   const form = document.createElement('form');
+  const randId = Date.now();
+  const dataObj = {};
+  dataObj['simple-form'+randId] = {
+    '@type': 'blocks/simple-form'
+  };
+  window.adobeDataLayer.push({
+    component: dataObj
+  })
   form.setAttribute('novalidate', 'true');
   // eslint-disable-next-line prefer-destructuring
   form.dataset.action = formURL.split('.json')[0];
@@ -271,7 +279,22 @@ async function createForm(formURL) {
     } else {
       container.append(fieldWrapper);
     }
-    form.addEventListener('change', (event) => valdiateElement(event.target));
+    form.addEventListener('change', (event) => {
+      valdiateElement(event.target); 
+    });
+    const inputField = fieldWrapper.getElementsByTagName("input").length > 0 ? fieldWrapper.getElementsByTagName("input")[0] : null;
+
+    inputField && inputField.addEventListener('blur', (event) => {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      const compObj = {};
+      compObj['simple-form'+randId + '.' + event.target.id] = {
+        value: event.target.value
+      }
+      window.adobeDataLayer.push({
+        component: compObj
+      });
+      console.log(event.target.value)
+    });
   });
 
   applyRuleEngine(json.data, {}, form);
