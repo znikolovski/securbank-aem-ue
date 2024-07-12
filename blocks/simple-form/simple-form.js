@@ -125,6 +125,7 @@ function createButton(fd) {
   button.classList.add('button');
   button.dataset.redirect = fd.redirect || '/';
   button.name = fd.Name;
+  button.id = 'form-submit';
   return button;
 }
 
