@@ -161,6 +161,18 @@
     ]
   },
   {
+    "id": "component-x",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "value",
+        "value": "",
+        "label": "Value",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "hero",
     "fields": [
       {
