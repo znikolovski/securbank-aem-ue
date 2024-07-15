@@ -338,14 +338,14 @@
       {
         "component": "aem-tag",
         "name": "tag",
-        "value": "",
+        "value": "transactions",
         "label": "Tag",
         "valueType": "string"
       },
       {
         "component": "text-input",
         "name": "variation",
-        "value": "",
+        "value": "master",
         "label": "Variation",
         "valueType": "string"
       }
