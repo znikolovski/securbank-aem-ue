@@ -331,5 +331,24 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "faq",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tag",
+        "value": "",
+        "label": "Tag",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "variation",
+        "value": "",
+        "label": "Variation",
+        "valueType": "string"
+      }
+    ]
   }
 ]
