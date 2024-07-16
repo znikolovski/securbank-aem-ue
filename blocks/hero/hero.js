@@ -86,7 +86,7 @@ function decorateAuthenticatedState(parent, user) {
         <p class="dashboard-mini__account-balance-value">$1,920.00</p>
       </div>
       <div class=dashboard-mini__quick-actions>
-        <span><a href="https://securbank-pjjd3xzba-znikolovski.vercel.app/" target="_blank">View account information</a></span>
+        <span><a href="https://securbank-react.vercel.app/" target="_blank">View account information</a></span>
       </div>
     </div>
   `;
