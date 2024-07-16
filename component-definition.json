@@ -242,7 +242,7 @@
           }
         },
         {
-          "title": "FAQ",
+          "title": "Frequent Qs",
           "id": "faq",
           "plugins": {
             "xwalk": {
