@@ -1,17 +1,16 @@
-import { readBlockConfig } from '../../scripts/aem.js';
-
 export default async function decorate(block) {
 
-  const config = readBlockConfig(block);
-  console.log(config);
-  
+  const props = [...block.children];
+  const firsttag = props[0].textContent.trim();
+  const variationname = props[1].textContent.trim() || "master";
 
-  const url = 'https://publish-p55117-e571178.adobeaemcloud.com/graphql/execute.json/securbank/FAQListbyTag;tag=transactions';
+  console.log(firsttag);
+  console.log(variationname);
+
+  const url = 'https://publish-p55117-e571178.adobeaemcloud.com/graphql/execute.json/securbank/FAQListbyTag;tag=' + firsttag + ';variation=' + variationname;
   const options = {};
   const faq = await fetch(url, options);
   const index = await faq.json();
-  // console.log(index.data.faqList.items);
-
 
   let itemsHTML = '';
   index.data.faqList.items.forEach(item => {
