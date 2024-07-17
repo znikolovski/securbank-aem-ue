@@ -337,7 +337,7 @@
     "fields": [
       {
         "component": "aem-tag",
-        "name": "tag",
+        "name": "cq:tags",
         "value": "transactions",
         "label": "Tag",
         "valueType": "string"
