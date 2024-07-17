@@ -337,10 +337,11 @@
     "fields": [
       {
         "component": "aem-tag",
-        "name": "cq:tags",
+        "name": "tags",
         "value": "transactions",
         "label": "Tag",
-        "valueType": "string"
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/securbank"
       },
       {
         "component": "text-input",
