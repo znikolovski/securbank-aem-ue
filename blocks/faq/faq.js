@@ -4,19 +4,26 @@ export default async function decorate(block) {
   const options = {};
   const faq = await fetch(url, options);
   const index = await faq.json();
-  console.log(index.data.faqList.items);
+  // console.log(index.data.faqList.items);
+
+
+  let itemsHTML = '';
+  index.data.faqList.items.forEach(item => {
+    itemsHTML += `
+      <li data-aue-resource={"urn:aemconnection:" + item._path + "/jcr:content/data/master"} data-aue-type="reference" data-aue-filter="cf">
+        <details class="faqDetails">    
+          <summary class="faqHeading">
+            <span data-aue-prop="question" data-aue-type="text">${item.question}</span>
+            <b></b>
+          </summary>
+          <div data-aue-prop="answer" data-aue-type="richtext" class="faqDescription">${item.answer.html}</div>
+        </details>
+      </li>`;
+  });
 
   block.innerHTML = `
-                <h4 class='sectionHeading'>Frequently Asked Questions</h4>
-                <ul class="faqList">
-                <li>
-                  <details class="faqDetails">    
-                                  <summary class="faqHeading">
-                                      <span data-aue-prop="question" data-aue-type="text" >Question</span>
-                                      <b></b>
-                                  </summary>
-                                  <div data-aue-prop="answer" data-aue-type="richtext" class="faqDescription">Answer</div>
-                              </details>
-                </li>
-                </ul>`;
+    <h4 class='sectionHeading'>Frequently Asked Questions</h4>
+    <ul class="faqList">
+      ${itemsHTML}
+    </ul>`;
 }
