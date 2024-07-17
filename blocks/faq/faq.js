@@ -10,13 +10,13 @@ export default async function decorate(block) {
   let itemsHTML = '';
   index.data.faqList.items.forEach(item => {
     itemsHTML += `
-      <li data-aue-resource="urn:aemconnection:` + item._path + `/jcr:content/data/master" data-aue-type="reference" data-aue-filter="cf">
+      <li data-aue-resource="urn:aemconnection:` + item._path + `/jcr:content/data/master" data-aue-type="reference" data-aue-label="faq item" data-aue-filter="cf">
         <details class="faqDetails">    
           <summary class="faqHeading">
-            <span data-aue-prop="question" data-aue-type="text">${item.question}</span>
+            <span data-aue-prop="question" data-aue-label="question" data-aue-type="text">${item.question}</span>
             <b></b>
           </summary>
-          <div data-aue-prop="answer" data-aue-type="richtext" class="faqDescription">${item.answer.html}</div>
+          <div data-aue-prop="answer" data-aue-label="answer" data-aue-type="richtext" class="faqDescription">${item.answer.html}</div>
         </details>
       </li>`;
   });

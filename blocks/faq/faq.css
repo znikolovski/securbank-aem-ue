@@ -1,6 +1,11 @@
 .faq {
-    background-color: #F3F2F6;
 
+
+}
+
+.section > .faq-wrapper {
+    max-width: 1920px;
+    background-color: #F3F2F6;
 }
 
 .sectionHeading {
