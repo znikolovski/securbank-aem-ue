@@ -1,4 +1,10 @@
+import { readBlockConfig } from '../../scripts/aem.js';
+
 export default async function decorate(block) {
+
+  const config = readBlockConfig(block);
+  console.log(config);
+  
 
   const url = 'https://publish-p55117-e571178.adobeaemcloud.com/graphql/execute.json/securbank/FAQListbyTag;tag=transactions';
   const options = {};
