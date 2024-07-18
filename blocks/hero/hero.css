@@ -246,3 +246,13 @@ main .hero img {
   font-size: 48px;
   color: rgba(44,44,44,1);
 }
+
+@media (width < 1050px) {
+  .dashboard-mini {
+    display: none;
+  }
+  .login {
+    display: none;
+  }
+  
+}
