@@ -27,7 +27,7 @@ export default async function decorate(block) {
   });
 
   block.innerHTML = `
-    <h4 class='sectionHeading'>Frequently Asked Questions</h4>
+    <h2 class='sectionHeading'>Frequently Asked Questions</h2>
     <ul class="faqList">
       ${itemsHTML}
     </ul>`;
