@@ -2,6 +2,7 @@
 import { createRange } from './range.js';
 import { applyRuleEngine } from './rules/index.js';
 import formData from './data/form-data.js';
+import { pushToDataLayer } from '../../plugins/martech/src/index.js'
 
 const validityKeyMsgMap = {
   typeMismatch: 'ErrorMessageInvalid',
@@ -216,10 +217,16 @@ async function createForm(formURL) {
   const json = await resp.json();
   // const json = formData;
   const form = document.createElement('form');
+  const pageDir = window.location.pathname !== '/' ? window.location.pathname.replace(/\//g, '') : 'home';
+  
   const randId = Date.now();
+
   const dataObj = {};
-  dataObj['simple-form'+randId] = {
-    '@type': 'blocks/simple-form'
+  dataObj['simple-form'] = {
+    '@type': 'blocks/simple-form',
+    id: +randId,
+    name: 'simple-form'+randId,
+    parentId: pageDir
   };
   window.adobeDataLayer.push({
     component: dataObj
@@ -287,9 +294,11 @@ async function createForm(formURL) {
     const inputField = fieldWrapper.getElementsByTagName("input").length > 0 ? fieldWrapper.getElementsByTagName("input")[0] : null;
 
     inputField && inputField.addEventListener('blur', (event) => {
+
       window.adobeDataLayer = window.adobeDataLayer || [];
       const compObj = {};
-      compObj['simple-form'+randId + '.' + event.target.id] = {
+      compObj['simple-form' + '.' + event.target.id] = {
+        parentId: form.id,
         value: event.target.value
       }
       window.adobeDataLayer.push({
