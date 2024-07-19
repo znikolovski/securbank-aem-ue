@@ -353,7 +353,7 @@
     ]
   },
   {
-    "id": "creditcardlist",
+    "id": "creditcardslist",
     "fields": [
       {
         "component": "aem-tag",
