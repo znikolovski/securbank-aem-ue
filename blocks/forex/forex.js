@@ -8,10 +8,13 @@ export default async function decorate(block) {
     .forEach((currency) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
-      <td><img src="/icons/flag-${currency.currencyCode}.svg" alt="An Flag for ${currency.currencyCode} "></td><td>${currency.currencyTitle}</td><td>${currency.currencyCode}</td><td>${currency.forex}</td>
+        <td><img src="/icons/flag-${currency.currencyCode}.svg" alt="An Flag for ${currency.currencyCode} "></td>
+        <td>${currency.currencyTitle}</td>
+        <td>${currency.currencyCode}</td>
+        <td>${currency.forex}</td>
       `;
       container.append(tr);
     });
-  block.innerHTML = `<h4>Exchange Rates</h4><h5>Base Currency: ${index.title}</h5>`;
+  block.innerHTML = `<h2 class='sectionHeading'>Exchange Rates for the ${index.title}</h2>`;
   block.append(container);
 }

@@ -245,3 +245,9 @@ main .section.highlight {
 main .columns-container  {
   background-color: #F3F2F6;
 } 
+
+main .sectionHeading {
+  text-align: center;
+  padding: 40px;
+  font-size: 36px;
+}
