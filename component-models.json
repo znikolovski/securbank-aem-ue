@@ -210,7 +210,14 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "name": "showauthbox",
+        "label": "Show Auth Box",
+        "valueType": "boolean"
       }
+      
     ]
   },
   {
