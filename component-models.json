@@ -213,7 +213,7 @@
       },
       {
         "component": "boolean",
-        "name": "showauthbox",
+        "name": "boolean",
         "label": "Show Auth Box",
         "valueType": "boolean"
       }
