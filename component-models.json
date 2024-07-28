@@ -213,9 +213,10 @@
       },
       {
         "component": "boolean",
-        "name": "boolean",
-        "label": "Show Auth Box",
-        "valueType": "boolean"
+        "name": "showauthbox",
+        "label": "Show Auth Box?",
+        "valueType": "boolean",
+        "description": "Show the authentication box that either displays a log in prompt, or the user's name and account details"
       }
       
     ]
