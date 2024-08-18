@@ -33,8 +33,13 @@
     background-color: white;
     padding: 20px;
     margin-bottom: 10px;
+    transition: all 0.5s;
 }
 
+.faqList li:not(:hover) {
+    opacity: 70%;
+}
+  
 
 .faqHeading {
     text-align: left;
