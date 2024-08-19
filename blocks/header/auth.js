@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 export async function validateAuth() {
   const token = JSON.parse(window.localStorage.getItem("auth")).token;
   const options = {

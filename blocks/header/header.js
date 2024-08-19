@@ -96,12 +96,12 @@ export function decorateNavAuth() {
   auth.innerHTML = `<button type="button" id="logout" aria-label="Login">
             <span>Sign out</span>
           </button>`;
-    const logoutButton = auth.children[0];
-    logoutButton.addEventListener("click", () => {
-      auth.innerHTML = LOGIN_FORM;
-      window.localStorage.removeItem('auth');
-      location.reload();
-    });
+  const logoutButton = auth.children[0];
+  logoutButton.addEventListener("click", () => {
+    auth.innerHTML = LOGIN_FORM;
+    window.localStorage.removeItem('auth');
+    location.reload();
+  });
 }
 
 /**
@@ -163,7 +163,7 @@ export default async function decorate(block) {
   // login section
   const auth = document.createElement('div');
   auth.classList.add('nav-auth');
-  console.log(getActiveAudiences());
+  // console.log(getActiveAudiences());
   if(window.localStorage.getItem("auth") === null) {
     auth.innerHTML = LOGIN_FORM;
     auth.addEventListener('click', () => {
@@ -175,7 +175,7 @@ export default async function decorate(block) {
         const password = document.getElementById('password').value;
 
         authenticate(username, password).then((user) => {
-          console.log(user)
+          console.log(user);
           const auth = document.getElementsByClassName('nav-auth')[0];
           auth.innerHTML = `<button type="button" id="logout" aria-label="Login">
             <span>Sign out</span>
@@ -187,7 +187,6 @@ export default async function decorate(block) {
             const loginForm = document.getElementsByClassName('login-form')[0];
             loginForm.style.display = 'none';
           });
-          
         });
         // handle submit
       });
@@ -202,7 +201,7 @@ export default async function decorate(block) {
       location.reload();
     });
   }
-  
+
   nav.append(auth);
 
   const navWrapper = document.createElement('div');

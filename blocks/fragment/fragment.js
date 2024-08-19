@@ -4,6 +4,8 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
+/* eslint-disable no-console */
+
 import {
   decorateMain,
 } from '../../scripts/scripts.js';
@@ -44,7 +46,6 @@ export async function loadFragment(path) {
 export default async function decorate(block) {
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();
-  console.log("Loading Fragment.. " + path);
   const fragment = await loadFragment(path);
   if (fragment) {
     const fragmentSection = fragment.querySelector(':scope .section');

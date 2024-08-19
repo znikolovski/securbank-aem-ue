@@ -1,11 +1,10 @@
 export default async function decorate(block) {
-
   const props = [...block.children];
   const firsttag = props[0].textContent.trim();
-  const variationname = props[1].textContent.trim() || "master";
+  const variationname = props[1].textContent.trim() || 'master';
 
-  console.log(firsttag);
-  console.log(variationname);
+  // console.log(firsttag);
+  // console.log(variationname);
 
   const url = 'https://publish-p55117-e571178.adobeaemcloud.com/graphql/execute.json/securbank/FAQListbyTag;tag=' + firsttag + ';variation=' + variationname;
   const options = {};
