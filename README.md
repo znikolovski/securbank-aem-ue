@@ -1,4 +1,4 @@
-# Your Project's Title...
+# SecurBankDemo.com
 SecurBank Demo Site for Adobe Experience Manager with Edge Delivery Services.
 
 ## Environments
