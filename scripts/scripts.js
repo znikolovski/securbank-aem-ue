@@ -13,7 +13,7 @@ import {
   loadBlocks,
   loadCSS,
   toCamelCase,
-  toClassName
+  toClassName,
 } from './aem.js';
 import getAudiences from './utils.js';
 
@@ -135,7 +135,6 @@ async function loadEager(doc) {
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
     await runEager(document, { audiences: getAudiences() }, pluginContext);
   }
-
 
   if (main) {
     decorateMain(main);
