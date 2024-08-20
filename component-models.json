@@ -210,7 +210,15 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "name": "showauthbox",
+        "label": "Show Auth Box?",
+        "valueType": "boolean",
+        "description": "Show the authentication box that either displays a log in prompt, or the user's name and account details"
       }
+      
     ]
   },
   {

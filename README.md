@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# SecurBankDemo.com
+SecurBank Demo Site for Adobe Experience Manager with Edge Delivery Services.
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--securbank-aem-ue.hlx.page/
+- Live: https://main--securbank-aem-ue.hlx.live/
 
 ## Installation
 

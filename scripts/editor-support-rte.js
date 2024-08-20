@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-cond-assign */
 /* eslint-disable import/prefer-default-export */
 
@@ -38,7 +39,7 @@ export function decorateRichtext(container = document) {
     } else {
       const editable = element.closest('[data-aue-resource]');
       if (editable) {
-        orphanElements = editable.querySelectorAll(`[data-richtext-prop="${richtextProp}"]`);
+        orphanElements = editable.querySelectorAll(`:scope > :not([data-aue-resource]) [data-richtext-prop="${richtextProp}"]`);
       } else {
         console.warn(`Editable parent not found or richtext property ${richtextProp}`);
         return;
@@ -51,11 +52,13 @@ export function decorateRichtext(container = document) {
       orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
     } else {
       const group = document.createElement('div');
-      if (richtextResource) group.dataset.aueResource = richtextResource;
+      if (richtextResource) {
+        group.dataset.aueResource = richtextResource;
+        group.dataset.aueBehavior = 'component';
+      }
       if (richtextProp) group.dataset.aueProp = richtextProp;
       if (richtextLabel) group.dataset.aueLabel = richtextLabel;
       if (richtextFilter) group.dataset.aueFilter = richtextFilter;
-      group.dataset.aueBehavior = 'component';
       group.dataset.aueType = 'richtext';
       element.replaceWith(group);
       group.append(element, ...siblings);

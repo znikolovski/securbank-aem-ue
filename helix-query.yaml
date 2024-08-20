@@ -3,6 +3,9 @@ indices:
   articles:
     include:
       - /**
+    exclude:
+      - /securbank/playground/**
+      - /securbank/configuration
     target: /query-index.json
     properties:
       lastModified:

@@ -9,7 +9,7 @@ main .hero-container {
 main .hero {
   position: relative;
   padding: 32px;
-  min-height: 390px;
+  min-height: 454px;
   color: var(--background-color);
 }
 
@@ -84,7 +84,12 @@ main .hero img {
   top: -110px;
   overflow: visible;
   background-color: white;
+  
 }
+.login-form {
+  box-sizing: content-box;
+}
+
 #log-in .login-form__message {
   overflow: visible;
   padding: 40px 40px 40px 40px;
@@ -109,6 +114,7 @@ main .hero img {
   height: 65.5px;
   overflow: visible;
   padding: 0 0 15px 40px;
+  box-sizing: content-box;
 }
 #log-in .login-form__input input::placeholder {
   color: rgba(129,138,150,1);
@@ -123,7 +129,7 @@ main .hero img {
   width: 61px;
   white-space: nowrap;
   line-height: 20px;
-  margin-top: -3px;
+  margin-top: 0;
   text-align: left;
   font-family: Adobe Clean;
   font-style: normal;
@@ -135,11 +141,11 @@ main .hero img {
 #log-in .login-form__input input {
   overflow: visible;
   padding-left: 20px;
-  width: 265px;
+  width: 290px;
   height: 40px;
   white-space: nowrap;
   line-height: 20px;
-  margin-top: -2px;
+  margin-top: 0;
   text-align: left;
   font-family: Adobe Clean;
   font-style: normal;
@@ -154,7 +160,7 @@ main .hero img {
   place-items: center;
 }
 #log-in .login-form__submit {
-  width: 300px;
+  width: 370px;
   height: 40px;
   overflow: visible;
   padding: 10px 30px 10px 30px;

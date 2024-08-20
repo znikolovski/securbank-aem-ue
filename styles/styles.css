@@ -10,6 +10,12 @@
  * governing permissions and limitations under the License.
  */
 
+ *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
  :root {
   /* colors */
   --link-color: #026169;
@@ -66,6 +72,7 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
   display: none;
 }
 
@@ -245,3 +252,9 @@ main .section.highlight {
 main .columns-container  {
   background-color: #F3F2F6;
 } 
+
+main .sectionHeading {
+  text-align: center;
+  padding: 40px;
+  font-size: 36px;
+}

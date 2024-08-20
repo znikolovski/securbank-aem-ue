@@ -3,7 +3,20 @@ import { moveInstrumentation } from "../../scripts/scripts.js";
 import { decorateNavAuth } from "../header/header.js";
 
 export default async function decorate(block) {
-  let row = block.firstElementChild;
+
+  const props = [...block.children];
+
+  let row = block.firstElementChild;  
+  let  showauthbox = "undefined";
+
+  if (props[2] !== undefined) {
+    showauthbox = props[2].textContent.trim() || "false";
+    // console.log("Show Auth Box: " + showauthbox);
+    let lastrow = block.lastElementChild;
+    lastrow.remove();
+  }
+
+
   const bg = row.querySelector('picture');
   block.append(bg);
   row.remove();
@@ -13,7 +26,9 @@ export default async function decorate(block) {
   row.classList.add('hero-body');
   const content = document.getElementsByClassName('hero-body')[0].children[0].children[0].children[0];
   moveInstrumentation(row, content);
+  if (showauthbox == "true") {
   window.localStorage.getItem("auth") === null ? decorateUnAuthenticatedState(row) : decorateAuthenticatedState(row, JSON.parse(window.localStorage.getItem("auth")))
+  }
 }
 
 function decorateUnAuthenticatedState(parent) {
