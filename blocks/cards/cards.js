@@ -20,7 +20,7 @@ export default function decorate(block) {
     img.closest('picture').replaceWith(optimizedPic);
   });
   ul.querySelectorAll('a').forEach((a) => {
-    a.className = 'button button-primary';
+    a.className = 'button secondary';
     decorateButtons(a);
   });
   block.textContent = '';
