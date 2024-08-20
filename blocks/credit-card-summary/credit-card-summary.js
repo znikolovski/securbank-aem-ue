@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 export default async function decorate(block) {
+
   const aempublishurl = 'https://publish-p55117-e571178.adobeaemcloud.com';
   const aemauthorurl = 'https://author-p55117-e571178.adobeaemcloud.com';
   const persistedquery = '/graphql/execute.json/securbank/CreditCardByPath';

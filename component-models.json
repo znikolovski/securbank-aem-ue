@@ -359,5 +359,25 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "creditcardslist",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tags",
+        "value": "transactions",
+        "label": "Tag",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/securbank"
+      },
+      {
+        "component": "text-input",
+        "name": "variation",
+        "value": "master",
+        "label": "Variation",
+        "valueType": "string"
+      }
+    ]
   }
 ]
