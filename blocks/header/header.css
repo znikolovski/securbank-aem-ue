@@ -149,6 +149,7 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  text-align: center;
 }
 
 header nav .nav-brand img {
@@ -291,6 +292,13 @@ header nav .nav-tools {
 }
 
 header nav .nav-auth button {
-  color: var(--text-color);
-  background-color: rgba(243, 242, 246, 1);
+  display:none;
+}
+
+@media (width >= 900px) {
+  header nav .nav-auth button {
+    display:unset;
+    color: var(--text-color);
+    background-color: rgb(243, 246, 242);
+  }
 }
