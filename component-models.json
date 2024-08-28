@@ -484,7 +484,7 @@
         "component": "custom-asset-namespace:custom-asset",
         "name": "image",
         "label": "Image",
-        "configUrl": "https://main--securbank-aem-ue--markszulc.aem.page/tools/assets-selector/image.config.json",
+        "configUrl": "https://main--securbank-aem-ue--markszulc.hlx.page/tools/assets-selector/image.config.json",
         "valueType": "string"
       },
       {
