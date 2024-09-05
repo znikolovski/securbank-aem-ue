@@ -180,11 +180,6 @@ header nav .nav-sections ul  {
   justify-content: end;
 }
 
-header nav .nav-sections ul > li:hover {
-  font-weight: 900;
-  text-decoration: none;
-}
-
 header nav .nav-sections ul > li > a {
   text-decoration: none;
 }
@@ -201,6 +196,11 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
+}
+
+header nav .nav-sections ul > li:hover {
+  font-weight: 900;
+  text-decoration: none;
 }
 
 @media (width >= 900px) {

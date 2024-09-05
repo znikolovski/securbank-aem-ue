@@ -12,7 +12,7 @@
 .faq-list {
     display: flex;
     flex-direction: column;
-    flex-flow: wrap;
+    flex-wrap: wrap;
     list-style-type: none;
     justify-content:space-between;
     padding: 0 0 50px;

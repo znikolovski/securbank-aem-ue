@@ -23,32 +23,32 @@ function decorateAuthenticatedState(parent, user) {
 
 function decorateUnAuthenticatedState(parent) {
   const FORM = `<form class="login-form">
-      <div id="login-message" class="login-form__message">
+      <div id="login-message" class="login-form-message">
         <span>Welcome back!</span>
-        <p class="error_message" style="display:none"></p>
+        <p class="error-message" style="display:none"></p>
       </div>
-      <div class="login-form__input">
-        <div class="login-form__label">
+      <div class="login-form-input">
+        <div class="login-form-label">
           <span>Username</span>
         </div>
         <div id="login-username">
           <input id="username" type="text" placeholder="e.g. jdoe@adobe.com" />
         </div>
       </div>
-      <div class="login-form__input">
-        <div class="login-form__label">
+      <div class="login-form-input">
+        <div class="login-form-label">
           <span>Password</span>
         </div>
         <div id="login-password">
           <input id="password" type="password" placeholder="At least 8 characters" />
         </div>
       </div>
-      <div class="login-form__submit">
+      <div class="login-form-submit">
         <div id="login-submit">
-          <input id="loginButton" type="submit" value="Log In" />
+          <input id="login-button" type="submit" value="Log In" />
         </div>
       </div>
-      <div class="login-form__forgot-password">
+      <div class="login-form-forgot-password">
         <span>Forgot user ID or password?</span>
       </div>
     </form>`;
