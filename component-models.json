@@ -191,6 +191,10 @@
               {
                 "name": "Wide",
                 "value": "card-wide"
+              },
+              {
+                "name": "Credit Card List",
+                "value": "card-creditcard-list"
               }
             ]
           }
