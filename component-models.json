@@ -233,10 +233,10 @@
             ]
           },
           {
-            "name": "Show Login Form",
+            "name": "Features",
             "children": [
               {
-                "name": "Yes",
+                "name": "Show Login Box",
                 "value": "authbox"
               }
             ]
