@@ -7,10 +7,13 @@ To implement experimentation or personalization use-cases, please reach out to t
 ## Features
 
 The AEM Experimentation plugin supports:
+- :lock: privacy-first, as it doesn't use any, nor persists any, end-user data that could lead to their identification. No end-user opt-in nor cookie consent is required when using the default configuration that uses [AEM Edge Delivery Services Real User Monitoring](https://github.com/adobe/helix-rum-js/).*
 - :busts_in_silhouette: serving different content variations to different audiences, including custom audience definitions for your project that can be either resolved directly in-browser or against a trusted backend API.
-- :money_with_wings: serving different content variations based on marketing campaigns you are running, so that you can easily track email and/or social campaigns
+- :money_with_wings: serving different content variations based on marketing campaigns you are running, so that you can easily track email and/or social campaigns.
 - :chart_with_upwards_trend: running A/B test experiments on a set of variants to measure and improve the conversion on your site. This works particularly with our :chart: [RUM conversion tracking plugin](https://github.com/adobe/franklin-rum-conversion).
-- :rocket: easy simulation of each experience and basic reporting leveraging in-page overlays
+- :rocket: easy simulation of each experience and basic reporting leveraging in-page overlays.
+
+\* Bringing additional marketing technology such as visitor-based analytics or personalization to a project will cancel this privacy-first principle.
 
 ## Installation
 
@@ -26,33 +29,13 @@ git subtree pull --squash --prefix plugins/experimentation git@github.com:adobe/
 
 If you prefer using `https` links you'd replace `git@github.com:adobe/aem-experimentation.git` in the above commands by `https://github.com/adobe/aem-experimentation.git`.
 
-## Project instrumentation
-
-:warning: The plugin requires that you have a recent RUM instrumentation from the AEM boilerplate that supports `sampleRUM.always`. If you are getting errors that `.on` cannot be called on an `undefined` object, please apply the changes from https://github.com/adobe/aem-boilerplate/pull/247/files to your `lib-franklin.js`.
-
-### On top of the plugin system
-
-The easiest way to add the plugin is if your project is set up with the plugin system extension in the boilerplate.
-You'll know you have it if `window.hlx.plugins` is defined on your page.
-
-If you don't have it, you can follow the proposal in https://github.com/adobe/aem-lib/pull/23 and https://github.com/adobe/aem-boilerplate/pull/275 and apply the changes to your `aem.js`/`lib-franklin.js` and `scripts.js`.
-
-Once you have confirmed this, you'll need to edit your `scripts.js` in your AEM project and add the following at the start of the file:
-```js
-const AUDIENCES = {
-  mobile: () => window.innerWidth < 600,
-  desktop: () => window.innerWidth >= 600,
-  // define your custom audiences here as needed
-};
-
-window.hlx.plugins.add('experimentation', {
-  condition: () => getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length,
-  options: { audiences: AUDIENCES },
-  url: '/plugins/experimentation/src/index.js',
-});
+If the `subtree pull` command is failing with an error like:
 ```
+fatal: can't squash-merge: 'plugins/experimentation' was never added
+```
+you can just delete the folder and re-add the plugin via the `git subtree add` command above.
+
+## Project instrumentation
 
 ### On top of a regular boilerplate project
 
@@ -95,6 +78,16 @@ Typically, you'd know you don't have the plugin system if you don't see a refere
       toClassName,
     };
     ```
+    And make sure to import any missing/undefined methods from `aem.js`/`lib-franklin.js` at the very top of the file:
+    ```js
+    import {
+      ...
+      getMetadata,
+      loadScript,
+      toCamelCase,
+      toClassName,
+    } from './aem.js';
+    ```
 3. Early in the `loadEager` method you'll need to add:
     ```js
     async function loadEager(doc) {
@@ -126,6 +119,30 @@ Typically, you'd know you don't have the plugin system if you don't see a refere
     }
     ```
     This is mostly used for the authoring overlay, and as such isn't essential to the page rendering, so having it at the end of the lazy phase is good enough.
+
+### On top of the plugin system
+
+The easiest way to add the plugin is if your project is set up with the plugin system extension in the boilerplate.
+You'll know you have it if `window.hlx.plugins` is defined on your page.
+
+If you don't have it, you can follow the proposal in https://github.com/adobe/aem-lib/pull/23 and https://github.com/adobe/aem-boilerplate/pull/275 and apply the changes to your `aem.js`/`lib-franklin.js` and `scripts.js`.
+
+Once you have confirmed this, you'll need to edit your `scripts.js` in your AEM project and add the following at the start of the file:
+```js
+const AUDIENCES = {
+  mobile: () => window.innerWidth < 600,
+  desktop: () => window.innerWidth >= 600,
+  // define your custom audiences here as needed
+};
+
+window.hlx.plugins.add('experimentation', {
+  condition: () => getMetadata('experiment')
+    || Object.keys(getAllMetadata('campaign')).length
+    || Object.keys(getAllMetadata('audience')).length,
+  options: { audiences: AUDIENCES },
+  url: '/plugins/experimentation/src/index.js',
+});
+```
 
 ### Custom options
 
@@ -168,14 +185,12 @@ runEager.call(document, {
 
   /* Experimentation related properties */
   // See more details on the dedicated Experiments page linked below
-  experimentsRoot: '/experiments',
-  experimentsConfigFile: 'manifest.json',
   experimentsMetaTag: 'experiment',
   experimentsQueryParameter: 'experiment',
 }, pluginContext);
 ```
 
 For detailed implementation instructions on the different features, please read the dedicated pages we have on those topics:
-- [Audiences](https://github.com/adobe/aem-experimentation/wiki/Audiences)
-- [Campaigns](https://github.com/adobe/aem-experimentation/wiki/Campaigns)
-- [Experiments](https://github.com/adobe/aem-experimentation/wiki/Experiments)
+- [Audiences](/documentation/audiences.md)
+- [Campaigns](/documentation/campaigns.md)
+- [Experiments](/documentation/experiments.md)

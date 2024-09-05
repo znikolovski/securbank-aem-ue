@@ -1,33 +1,27 @@
-.faq {
-
-
-}
-
 .section > .faq-wrapper {
     max-width: 1920px;
     background-color: #F3F2F6;
 }
 
-.sectionHeading {
+.section-heading {
     text-align: center;
     padding: 40px;
     font-size: 36px;
 }
 
-.faqList {
+.faq-list {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     list-style-type: none;
     justify-content:space-between;
-    padding: 0 0 50px 0 ;
+    padding: 0 0 50px;
     padding-inline-start:0;
     color: #2C2C2C;
     max-width: 840px;
-    margin: 0px auto ;
+    margin: 0 auto;
 }
 
-.faqList li {
+.faq-list li {
     text-decoration: none;
     font-size: 18px;
     background-color: white;
@@ -36,15 +30,15 @@
     transition: all 0.5s;
 }
 
-.faqList li:not(:hover) {
-    opacity: 70%;
+.faq-list li:not(:hover) {
+    opacity: 0.7;
 }
   
 
-.faqHeading {
+.faq-heading {
     text-align: left;
-    font: normal normal 600 18px/18px adobe-clean;
-    letter-spacing: 0px;
+    font: normal normal 600 18px/18px adobe-clean, sans-serif;
+    letter-spacing: 0;
     color: #2C2C2C;
     opacity: 1;
     margin: 0;
@@ -54,7 +48,7 @@
 }
 
 
-.faqHeading b::after {
+.faq-heading b::after {
     content: "+";
     font-size: 18px;
     margin-right: 5px;
@@ -64,12 +58,12 @@ details[open] summary b::after {
     content: "-";
 }
 
-.faqDescription {
+.faq-description {
     text-align: left;
-    font: normal normal normal 18px/22px adobe-clean;
-    letter-spacing: 0px;
+    font: normal normal normal 18px/22px adobe-clean, sans-serif;
+    letter-spacing: 0;
     color: #2C2C2C;
     opacity: 1;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-top: 10px;
 }
