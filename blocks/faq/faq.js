@@ -13,19 +13,19 @@ export default async function decorate(block) {
   index.data.faqList.items.forEach((item) => {
     itemsHTML += `
     <li data-aue-resource="urn:aemconnection:${item._path}/jcr:content/data/master" data-aue-type="reference" data-aue-label="faq content fragment" data-aue-filter="cf">
-        <details class="faqDetails">    
-          <summary class="faqHeading">
+        <details class="faq-details">    
+          <summary class="faq-heading">
             <span data-aue-prop="question" data-aue-label="question" data-aue-type="text">${item.question}</span>
             <b></b>
           </summary>
-          <div data-aue-prop="answer" data-aue-label="answer" data-aue-type="richtext" class="faqDescription">${item.answer.html}</div>
+          <div data-aue-prop="answer" data-aue-label="answer" data-aue-type="richtext" class="faq-description">${item.answer.html}</div>
         </details>
       </li>`;
   });
 
   block.innerHTML = `
-    <h2 class='sectionHeading'>Frequently Asked Questions</h2>
-    <ul class="faqList">
+    <h2 class='section-heading'>Frequently Asked Questions</h2>
+    <ul class="faq-list">
       ${itemsHTML}
     </ul>`;
 }
