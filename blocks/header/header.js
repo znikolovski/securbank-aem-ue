@@ -170,8 +170,8 @@ export default async function decorate(block) {
   if (window.localStorage.getItem('auth') === null) {
     auth.innerHTML = LOGIN_FORM;
     auth.addEventListener('click', () => {
-      const loginForm = document.getElementsByClassName('login-form')[0]; 
-      loginForm.style.display = 'block'
+      const loginForm = document.getElementsByClassName('login-form')[0];
+      loginForm.style.display = 'block';
       loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const username = document.getElementById('userName').value;
