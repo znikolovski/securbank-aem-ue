@@ -98,7 +98,7 @@ main .hero img {
   line-height: 30px;
   margin-top: -3px;
   text-align: left;
-  font-family: 'Adobe Clean';
+  font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -135,7 +135,7 @@ main .hero img {
   line-height: 20px;
   margin-top: 0;
   text-align: left;
-  font-family: 'Adobe Clean, sans-serif';
+  font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -152,7 +152,7 @@ main .hero img {
   line-height: 20px;
   margin-top: 0;
   text-align: left;
-  font-family: 'Adobe Clean, sans-serif';
+  font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -198,7 +198,7 @@ main .hero img {
   white-space: nowrap;
   line-height: 20px;
   margin-top: 20px;
-  font-family: 'Adobe Clean, sans-serif';
+  font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -220,7 +220,7 @@ main .hero img {
   overflow: visible;
   padding: 40px;
   text-align: left;
-  font-family: 'Adobe Clean, sans-serif';
+  font-family: 'Adobe Clean', sans-serif;
   color: rgba(44 44 44 / 100%);
 }
 
@@ -240,7 +240,7 @@ main .hero img {
   line-height: 18px;
   margin-top: -1px;
   text-align: left;
-  font-family: 'Adobe Clean, sans-serif';
+  font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
@@ -254,7 +254,7 @@ main .hero img {
   line-height: 18px;
   margin-top: 15px;
   text-align: left;
-  font-family: 'Adobe Clean, sans-serif';
+  font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
