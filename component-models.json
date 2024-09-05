@@ -162,9 +162,9 @@
       {
         "component": "text-input",
         "name": "classes",
-        "value": "",
         "label": "Style",
-        "valueType": "string"
+        "valueType": "string",
+        "required": true        
       }
     ]
   },
