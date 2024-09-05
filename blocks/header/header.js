@@ -175,7 +175,7 @@ export default async function decorate(block) {
         const password = document.getElementById('password').value;
 
         authenticate(username, password).then((user) => {
-          console.log(user);
+          // console.log(user);
           const auth = document.getElementsByClassName('nav-auth')[0];
           auth.innerHTML = `<button type="button" id="logout" aria-label="Login">
             <span>Sign out</span>
