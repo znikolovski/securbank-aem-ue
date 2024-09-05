@@ -2,8 +2,8 @@
 SecurBank Demo Site for Adobe Experience Manager with Edge Delivery Services.
 
 ## Environments
-- Preview: https://main--securbank-aem-ue.hlx.page/
-- Live: https://main--securbank-aem-ue.hlx.live/
+- Preview: https://main--securbank-aem-ue--markszulc.aem.page/
+- Live: https://main--securbank-aem-ue--markszulc.aem.live/
 
 ## Installation
 
