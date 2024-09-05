@@ -191,7 +191,7 @@
         "label": "Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 1,
+        "maxSize": 3,
         "options": [
           {
             "name": "Layout",
