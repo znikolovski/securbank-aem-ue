@@ -110,6 +110,28 @@
   }
 }
 
+.creditcardhome .cards > ul > li img {
+  object-fit: contain;
+}
+
+.creditcardhome .cards-card-image {
+  margin: 0;
+  padding: 0 16px;
+}
+
+.creditcardhome .cards-card-body p {
+  margin: 0;
+}
+
+.creditcardhome .cards-card-body {
+  margin: 0;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 265px;
+}
+
 .home .cards .cards-card-body {
   margin-block: 40px 0;
   margin-left: 40px;
@@ -133,8 +155,6 @@
 }
 
 .wide-cards .cards > ul {
-  display: flex;
-  flex-direction: column;
   display: block;
 }
 
@@ -192,7 +212,7 @@
 }
 
 .wide-cards > ul > li:nth-child(odd) .cards-card-body{
-  padding: 0px;
+  padding: 0;
   width: 420px;
 }
 
@@ -201,7 +221,7 @@
 }
 
 .wide-cards .cards > ul > li:nth-child(even) .cards-card-body{
-  padding: 0px;
+  padding: 0;
   width: 420px;
 }
 
@@ -226,27 +246,4 @@
 .cards-wrapper:has(.wide-cards) {
   margin: unset;
   max-width: 100%;
-}
-
-
-.creditcardhome .cards > ul > li img {
-  object-fit: contain;
-}
-
-.creditcardhome .cards-card-image {
-  margin: 0;
-  padding: 0 16px;
-}
-
-.creditcardhome .cards-card-body {
-  margin: 0;
-  padding: 0 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 265px;
-}
-
-.creditcardhome .cards-card-body p {
-  margin: 0;
 }
