@@ -157,6 +157,38 @@
     ]
   },
   {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 1,
+        "options": [
+          {
+            "name": "Layout",
+            "children": [
+              {
+                "name": "Home",
+                "value": "card-home"
+              },
+              {
+                "name": "Wide",
+                "value": "card-wide"
+              },
+              {
+                "name": "Credit Card List",
+                "value": "card-creditcard-list"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
