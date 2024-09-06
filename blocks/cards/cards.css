@@ -59,6 +59,11 @@
   width: 100%;
 }
 
+.wide-cards ul li picture img {
+  width: 620px;
+  aspect-ratio: 16 / 8;
+}
+
 .credit-card-detail .columns-img-col img {
   width: 450px;
   animation:spin 5s linear infinite;
@@ -182,11 +187,6 @@
     display: flex;
     flex-direction: row;
   }
-}
-
-.wide-cards ul li picture img {
-  width: 620px;
-  aspect-ratio: 16 / 8;
 }
 
 .creditcardhome .cards > ul > li img {
