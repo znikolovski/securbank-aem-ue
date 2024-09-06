@@ -51,6 +51,27 @@
   }
 }
 
+.credit-card-detail .columns-img-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.credit-card-detail .columns-img-col img {
+  width: 400px
+}
+
+.credit-card-detail .cards ul li{
+  padding: 40px 10px;
+  text-align: center;
+}
+
+.credit-card-detail .cards img {
+  height: 100px;
+  object-fit: contain;
+}
 
 .home .cards > ul {
   display: flex;
