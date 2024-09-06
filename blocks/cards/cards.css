@@ -60,16 +60,43 @@
 }
 
 .credit-card-detail .columns-img-col img {
-  width: 400px
+  width: 450px;
+  animation:spin 5s linear infinite;
+}
+
+@keyframes spin { 
+  0% { 
+    transform: rotate(5deg); 
+  } 
+
+  25% { 
+      transform: rotate(0deg); 
+  } 
+
+  50% { 
+      transform: rotate(-5deg); 
+  } 
+
+  75% { 
+      transform: rotate(0deg); 
+  } 
+
+  100% { 
+      transform: rotate(5deg); 
+  } 
+}
+
+.credit-card-detail .cards {
+  margin-top: 30px;
 }
 
 .credit-card-detail .cards ul li{
-  padding: 40px 10px;
+  padding: 10px;
   text-align: center;
 }
 
 .credit-card-detail .cards img {
-  height: 100px;
+  height: 70px;
   object-fit: contain;
 }
 
