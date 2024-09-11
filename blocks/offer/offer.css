@@ -1,13 +1,18 @@
 
 
+.offer-wrapper {
+  width: 50%;
+  padding: 20px;   
+}
+
 .banner-content {
-    position: relative;
+    /* position: relative; */
     border: #717171 0.2px solid;
     width: 100%;
     height: 400px;
-    display: flex;
     justify-content: space-between;
     background-color: #fff;
+    display: flex;
 }
 
 .banner-content p {
