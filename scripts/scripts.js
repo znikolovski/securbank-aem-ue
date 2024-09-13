@@ -134,7 +134,10 @@ async function loadEager(doc) {
     || Object.keys(getAllMetadata('audience')).length) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
-    await runEager(document, { audiences: getAudiences() }, pluginContext);
+    await runEager(document, {
+      prodHost: 'www.securbankdemo.com',
+      audiences: getAudiences(),
+    }, pluginContext);
   }
 
   if (main) {
