@@ -141,7 +141,6 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
-    await loadSection(LCP_BLOCKS);
   }
 
   sampleRUM.enhance();
