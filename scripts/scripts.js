@@ -136,6 +136,8 @@ async function loadEager(doc) {
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
     await runEager(document, {
       prodHost: 'www.securbankdemo.com',
+      isProd: () => window.location.hostname.endsWith('aem.page')
+      || window.location.hostname === ('localhost'),
       audiences: getAudiences(),
     }, pluginContext);
   }
