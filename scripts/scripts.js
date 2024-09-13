@@ -18,6 +18,13 @@ import {
 } from './aem.js';
 import getAudiences from './utils.js';
 
+// Add you templates below
+// window.hlx.templates.add('/templates/my-template');
+
+// Add you plugins below
+// window.hlx.plugins.add('/plugins/my-plugin.js');
+
+
 /**
  * Gets all the metadata elements that are in the given scope.
  * @param {String} scope The scope/prefix for the metadata
@@ -127,6 +134,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  await window.hlx.plugins.run('loadEager');
   const main = doc.querySelector('main');
 
   if (getMetadata('experiment')
@@ -154,6 +162,7 @@ async function loadEager(doc) {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
+      window.hlx.plugins.run('loadLazy');
     }
   } catch (e) {
     // do nothing
@@ -186,7 +195,12 @@ async function loadLazy(doc) {
     || Object.keys(getAllMetadata('audience')).length)) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
-    await runLazy(document, { audiences: getAudiences() }, pluginContext);
+    await runLazy(document, {
+      prodHost: 'www.securbankdemo.com',
+      isProd: () => window.location.hostname.endsWith('aem.page')
+      || window.location.hostname === ('localhost'),
+      audiences: getAudiences(),
+    }, pluginContext);
   }
 }
 
@@ -195,14 +209,20 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  window.setTimeout(() => {
+    window.hlx.plugins.load('delayed');
+    window.hlx.plugins.run('loadDelayed');
+    // eslint-disable-next-line import/no-cycle
+    return import('./delayed.js');
+  }, 3000);
   // load anything that can be postponed to the latest here
   import('./sidekick.js').then(({ initSidekick }) => initSidekick());
 }
 
 async function loadPage() {
+  await window.hlx.plugins.load('eager');
   await loadEager(document);
+  await window.hlx.plugins.load('lazy');
   await loadLazy(document);
   loadDelayed();
 }
