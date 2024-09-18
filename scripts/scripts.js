@@ -147,7 +147,7 @@ async function loadEager(doc) {
     prodHost: 'www.securbankdemo.com',
     isProd: () => !(window.location.hostname.endsWith('aem.page')
     || window.location.hostname === ('localhost')),
-    rumSamplingRate: 3,
+    rumSamplingRate: 1,
     audiences: getAudiences(),
   };
 
