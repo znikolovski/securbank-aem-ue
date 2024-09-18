@@ -24,7 +24,6 @@ import getAudiences from './utils.js';
 // Add you plugins below
 // window.hlx.plugins.add('/plugins/my-plugin.js');
 
-
 /**
  * Gets all the metadata elements that are in the given scope.
  * @param {String} scope The scope/prefix for the metadata
@@ -40,6 +39,14 @@ export function getAllMetadata(scope) {
       return res;
     }, {});
 }
+
+window.hlx.plugins.add('experimentation', {
+  condition: () => getMetadata('experiment')
+    || Object.keys(getAllMetadata('campaign')).length
+    || Object.keys(getAllMetadata('audience')).length,
+  options: { audiences: getAudiences() },
+  url: '/plugins/experimentation/src/index.js',
+});
 
 // Define an execution context
 const pluginContext = {
@@ -134,20 +141,22 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
-  await window.hlx.plugins.run('loadEager');
+  // await window.hlx.plugins.run('loadEager');
   const main = doc.querySelector('main');
+  const experimentationOptions = {
+    prodHost: 'www.securbankdemo.com',
+    isProd: () => !(window.location.hostname.endsWith('aem.page')
+    || window.location.hostname === ('localhost')),
+    rumSamplingRate: 3,
+    audiences: getAudiences(),
+  };
 
   if (getMetadata('experiment')
     || Object.keys(getAllMetadata('campaign')).length
     || Object.keys(getAllMetadata('audience')).length) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
-    await runEager(document, {
-      prodHost: 'www.securbankdemo.com',
-      isProd: () => window.location.hostname.endsWith('aem.page')
-      || window.location.hostname === ('localhost'),
-      audiences: getAudiences(),
-    }, pluginContext);
+    await runEager(document, experimentationOptions, pluginContext);
   }
 
   if (main) {
@@ -162,7 +171,13 @@ async function loadEager(doc) {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
-      window.hlx.plugins.run('loadLazy');
+      if (getMetadata('experiment')
+        || Object.keys(getAllMetadata('campaign')).length
+        || Object.keys(getAllMetadata('audience')).length) {
+        // eslint-disable-next-line import/no-relative-packages
+        const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
+        await runLazy(document, experimentationOptions, pluginContext);
+      }
     }
   } catch (e) {
     // do nothing
