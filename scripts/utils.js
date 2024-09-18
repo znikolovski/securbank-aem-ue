@@ -1,8 +1,8 @@
 const AUDIENCES = {
   mobile: () => window.innerWidth < 600,
   desktop: () => window.innerWidth >= 600,
-  // authenticated: () => window.localStorage.getItem('auth') !== null,
-  // unauthenticated: () => window.localStorage.getItem('auth') === null,
+  authenticated: () => window.localStorage.getItem('auth') !== null,
+  unauthenticated: () => window.localStorage.getItem('auth') === null,
   // define your custom audiences here as needed
 };
 
@@ -16,7 +16,8 @@ export function getActiveAudiences() {
   // eslint-disable-next-line no-plusplus
   for (let index = 0; index < audiences.length; index++) {
     const audience = audiences[index];
-    // console.log(AUDIENCES[audience]())
+    /* eslint-disable-next-line no-console */
+    console.log(AUDIENCES[audience]());
     if (AUDIENCES[audience]()) {
       activeAudiences.push(audience);
     }
