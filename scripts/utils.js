@@ -16,8 +16,6 @@ export function getActiveAudiences() {
   // eslint-disable-next-line no-plusplus
   for (let index = 0; index < audiences.length; index++) {
     const audience = audiences[index];
-    /* eslint-disable-next-line no-console */
-    console.log(AUDIENCES[audience]());
     if (AUDIENCES[audience]()) {
       activeAudiences.push(audience);
     }

@@ -113,8 +113,6 @@ function sampleRUM(checkpoint, data) {
   }
 }
 
-
-
 /**
  * Sanitizes a string for use as class name.
  * @param {string} name The unsanitized string
@@ -431,6 +429,7 @@ function decorateSections(main) {
     // Process section metadata
     const sectionMeta = section.querySelector('div.section-metadata');
     if (sectionMeta) {
+      // eslint-disable-next-line no-use-before-define
       const meta = readBlockConfig(sectionMeta);
       Object.keys(meta).forEach((key) => {
         if (key === 'style') {
@@ -484,8 +483,6 @@ async function fetchPlaceholders(prefix = 'default') {
   }
   return window.placeholders[`${prefix}`];
 }
-
-
 
 /**
  * Builds a block DOM Element from a two dimensional array, string, or object
