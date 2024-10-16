@@ -301,23 +301,23 @@
         "valueType": "string",
         "options": [
           {
-            "name": "AUD",
+            "name": "Australian Dollar",
             "value": "AUD"
           },
           {
-            "name": "USD",
+            "name": "US Dollar",
             "value": "USD"
           },
           {
-            "name": "GBP",
+            "name": "Pound Sterling",
             "value": "GBP"
           },
           {
-            "name": "CAD",
+            "name": "Canadian Dollar",
             "value": "CAD"
           },
           {
-            "name": "EUR",
+            "name": "Euro",
             "value": "EUR"
           }
         ]
