@@ -294,11 +294,33 @@
     "id": "forex",
     "fields": [
       {
-        "component": "text-input",
+        "component": "select",
         "name": "baseCurrency",
-        "value": "",
+        "value": "AUD",
         "label": "Base Currency",
-        "valueType": "string"
+        "valueType": "string",
+        "options": [
+          {
+            "name": "AUD",
+            "value": "AUD"
+          },
+          {
+            "name": "USD",
+            "value": "USD"
+          },
+          {
+            "name": "GBP",
+            "value": "GBP"
+          },
+          {
+            "name": "CAD",
+            "value": "CAD"
+          },
+          {
+            "name": "EUR",
+            "value": "EUR"
+          }
+        ]
       }
     ]
   },
