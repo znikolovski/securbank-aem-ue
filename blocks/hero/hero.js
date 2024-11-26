@@ -25,7 +25,7 @@ function decorateUnAuthenticatedState(parent) {
   const FORM = `<form class="login-form">
       <div id="login-message" class="login-form-message">
         <span>Welcome back!</span>
-        <p class="error-message" style="display:none"></p>
+        <p class="error_message" style="display:none"></p>
       </div>
       <div class="login-form-input">
         <div class="login-form-label">
