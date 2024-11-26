@@ -78,7 +78,7 @@
         "component": "custom-asset-namespace:custom-asset",
         "name": "image",
         "label": "Image",
-        "configUrl": "https://main--securbank-aem-ue--znikolovski.hlx.page/tools/assets-selector/image.config.json",
+        "configUrl": "https://raw.githubusercontent.com/znikolovski/securbank-aem-ue/refs/heads/main/tools/assets-selector/image.config.json",
         "valueType": "string"
       },
       {
