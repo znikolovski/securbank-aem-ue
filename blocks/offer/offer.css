@@ -1,18 +1,13 @@
 
 
-.offer-wrapper {
-  width: 50%;
-  padding: 20px;   
-}
-
 .banner-content {
-    /* position: relative; */
+    position: relative;
     border: #717171 0.2px solid;
     width: 100%;
-    height: 400px;
+    height: 200px;
+    display: flex;
     justify-content: space-between;
     background-color: #fff;
-    display: flex;
 }
 
 .banner-content p {
@@ -22,7 +17,7 @@
 @media (width >= 600px) {
     .banner-content {
         width: 1170px;
-        height: 400px;
+        height: 200px;
         margin: 55px;
     }
 
@@ -36,7 +31,7 @@
 .banner-content .banner-detail {
     width: 865px;
     box-sizing: border-box;
-    height: 400px;
+    height: 200px;
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -50,7 +45,7 @@
 
   @media (width >= 600px) {
     .banner-content .banner-detail {
-        padding: 150px 60px 60px;
+        padding: 56px 60px 60px;
     }
 
    .banner1300x435 .banner-content .banner-detail  {

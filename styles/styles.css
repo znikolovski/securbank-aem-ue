@@ -10,14 +10,20 @@
  * governing permissions and limitations under the License.
  */
 
+ *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
  :root {
   /* colors */
-  --link-color: #0296A6;
+  --link-color: #026169;
   --link-hover-color: #3E6470;
   --background-color: #fff;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
-  --text-color: #2C2C2C;
+  --text-color: #2c2c2c;
 
   /* fonts */
   --body-font-family: 'adobe-clean', helvetica, ubuntu, roboto, noto, sans-serif;
@@ -66,6 +72,7 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
   display: none;
 }
 
@@ -236,7 +243,7 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
-.default-content-wrapper h2 {
+.section h2 {
   text-align: center;
   font-size: 36px;
 }
@@ -245,3 +252,9 @@ main .section.highlight {
 main .columns-container  {
   background-color: #F3F2F6;
 } 
+
+main .section-heading {
+  text-align: center;
+  padding: 40px;
+  font-size: 36px;
+}

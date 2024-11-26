@@ -9,14 +9,20 @@ import {
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
-  waitForLCP,
-  loadBlocks,
+  waitForFirstImage,
+  loadSection,
+  loadSections,
   loadCSS,
   toCamelCase,
-  toClassName
+  toClassName,
 } from './aem.js';
 import getAudiences from './utils.js';
 
+// Add you templates below
+// window.hlx.templates.add('/templates/my-template');
+
+// Add you plugins below
+// window.hlx.plugins.add('/plugins/my-plugin.js');
 import {
   initMartech,
   updateUserConsent,
@@ -64,6 +70,14 @@ export function getAllMetadata(scope) {
     }, {});
 }
 
+window.hlx.plugins.add('experimentation', {
+  condition: () => getMetadata('experiment')
+    || Object.keys(getAllMetadata('campaign')).length
+    || Object.keys(getAllMetadata('audience')).length,
+  options: { audiences: getAudiences() },
+  url: '/plugins/experimentation/src/index.js',
+});
+
 // Define an execution context
 const pluginContext = {
   getAllMetadata,
@@ -75,7 +89,7 @@ const pluginContext = {
   toClassName,
 };
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
+// const LCP_BLOCKS = []; // add your LCP blocks to the list
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -157,30 +171,46 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  // await window.hlx.plugins.run('loadEager');
   const main = doc.querySelector('main');
+  const experimentationOptions = {
+    prodHost: 'www.securbankdemo.work',
+    isProd: () => !(window.location.hostname.endsWith('aem.page')
+    || window.location.hostname === ('localhost')),
+    rumSamplingRate: 1,
+    audiences: getAudiences(),
+  };
 
   if (getMetadata('experiment')
     || Object.keys(getAllMetadata('campaign')).length
     || Object.keys(getAllMetadata('audience')).length) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
-    await runEager(document, { audiences: getAudiences() }, pluginContext);
+    await runEager(document, experimentationOptions, pluginContext);
   }
-
 
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
     await Promise.all([
       martechLoadedPromise.then(martechEager),
-      waitForLCP(LCP_BLOCKS),
+      loadSection(main.querySelector('.section'), waitForFirstImage)
     ]);
   }
+
+  sampleRUM.enhance();
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
+      if (getMetadata('experiment')
+        || Object.keys(getAllMetadata('campaign')).length
+        || Object.keys(getAllMetadata('audience')).length) {
+        // eslint-disable-next-line import/no-relative-packages
+        const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
+        await runLazy(document, experimentationOptions, pluginContext);
+      }
     }
   } catch (e) {
     // do nothing
@@ -193,7 +223,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
-  await loadBlocks(main);
+  await loadSections(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
@@ -207,8 +237,6 @@ async function loadLazy(doc) {
 
   await martechLazy();
   sampleRUM('lazy');
-  sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
-  sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   // Add below snippet at the end of the lazy phase
   if ((getMetadata('experiment')
@@ -216,7 +244,12 @@ async function loadLazy(doc) {
     || Object.keys(getAllMetadata('audience')).length)) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
-    await runLazy(document, { audiences: getAudiences() }, pluginContext);
+    await runLazy(document, {
+      prodHost: 'www.securbankdemo.work',
+      isProd: () => window.location.hostname.endsWith('aem.page')
+      || window.location.hostname === ('localhost'),
+      audiences: getAudiences(),
+    }, pluginContext);
   }
 }
 
@@ -225,16 +258,20 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => {
-    martechDelayed();
-    return import('./delayed.js')
+    window.hlx.plugins.load('delayed');
+    window.hlx.plugins.run('loadDelayed');
+    // eslint-disable-next-line import/no-cycle
+    return import('./delayed.js');
   }, 3000);
   // load anything that can be postponed to the latest here
+  import('./sidekick.js').then(({ initSidekick }) => initSidekick());
 }
 
 async function loadPage() {
+  await window.hlx.plugins.load('eager');
   await loadEager(document);
+  await window.hlx.plugins.load('lazy');
   await loadLazy(document);
   loadDelayed();
 }

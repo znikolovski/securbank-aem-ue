@@ -681,19 +681,19 @@ function adjustedRumSamplingRate(checkpoint, options, context) {
 
 function adjustRumSampligRate(document, options, context) {
   const checkpoints = ['audiences', 'campaign', 'experiment'];
-  if (context.sampleRUM.always) { // RUM v1.x
-    checkpoints.forEach((ck) => {
-      context.sampleRUM.always.on(ck, adjustedRumSamplingRate(ck, options, context));
-    });
-  } else { // RUM 2.x
-    document.addEventListener('rum', (event) => {
-      if (event.detail
-        && event.detail.checkpoint
-        && checkpoints.includes(event.detail.checkpoint)) {
-        adjustedRumSamplingRate(event.detail.checkpoint, options, context);
-      }
-    });
-  }
+  // if (context.sampleRUM.always) { // RUM v1.x
+  //   checkpoints.forEach((ck) => {
+  //     context.sampleRUM.always.on(ck, adjustedRumSamplingRate(ck, options, context));
+  //   });
+  // } else { // RUM 2.x
+  //   document.addEventListener('rum', (event) => {
+  //     if (event.detail
+  //       && event.detail.checkpoint
+  //       && checkpoints.includes(event.detail.checkpoint)) {
+  //       adjustedRumSamplingRate(event.detail.checkpoint, options, context);
+  //     }
+  //   });
+  // }
 }
 
 export async function loadEager(document, options, context) {

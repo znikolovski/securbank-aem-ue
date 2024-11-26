@@ -1,5 +1,32 @@
 [
   {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "pagetitle",
+        "value": "",
+        "label": "Page Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:description",
+        "value": "",
+        "label": "Description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "keywords",
+        "value": "",
+        "label": "Keywords",
+        "multi": true
+      }
+    ]
+  },
+  {
     "id": "title",
     "fields": [
       {
@@ -130,6 +157,18 @@
     ]
   },
   {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "string",
+        "required": true        
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -183,7 +222,39 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      }
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 3,
+        "options": [
+          {
+            "name": "Theme",
+            "children": [
+              {
+                "name": "Light",
+                "value": "light"
+              },
+              {
+                "name": "Dark",
+                "value": "dark"
+              }
+            ]
+          },
+          {
+            "name": "Features",
+            "children": [
+              {
+                "name": "Show Login Box",
+                "value": "authbox"
+              }
+            ]
+          }
+        ]
+      }  
     ]
   },
   {
@@ -242,11 +313,33 @@
     "id": "forex",
     "fields": [
       {
-        "component": "text-input",
+        "component": "select",
         "name": "baseCurrency",
-        "value": "",
+        "value": "AUD",
         "label": "Base Currency",
-        "valueType": "string"
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Australian Dollar",
+            "value": "AUD"
+          },
+          {
+            "name": "US Dollar",
+            "value": "USD"
+          },
+          {
+            "name": "Pound Sterling",
+            "value": "GBP"
+          },
+          {
+            "name": "Canadian Dollar",
+            "value": "CAD"
+          },
+          {
+            "name": "Euro",
+            "value": "EUR"
+          }
+        ]
       }
     ]
   },
@@ -325,46 +418,22 @@
     ]
   },
   {
-    "id": "page-metadata",
+    "id": "faq",
     "fields": [
       {
-        "component": "text",
-        "name": "experiment",
-        "label": "Experiment",
-        "description": "Start an expriement by setting an Experiment ID"
+        "component": "aem-tag",
+        "name": "tags",
+        "value": "transactions",
+        "label": "Tag",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/securbank"
       },
       {
-        "component": "select",
-        "name": "experimentStatus",
-        "label": "Experiment Status",
-        "options": [
-          {
-            "name": "Active",
-            "value": "active"
-          },
-          {
-            "name": "Inactive",
-            "value": "inactive"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "name": "experimentSplit",
-        "label": "Experiment Split",
-        "multi": true
-      },
-      {
-        "component": "text",
-        "name": "experimentAudience",
-        "label": "Experiment Audience",
-        "multi": true
-      },
-      {
-        "component": "text",
-        "name": "experimentVariants",
-        "label": "Experiment Variants",
-        "multi": true
+        "component": "text-input",
+        "name": "variation",
+        "value": "master",
+        "label": "Variation",
+        "valueType": "string"
       }
     ]
   },

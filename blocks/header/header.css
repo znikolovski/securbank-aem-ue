@@ -2,7 +2,7 @@
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
-  z-index: 2;
+  z-index: 50;
   position: fixed;
   border-bottom: 1px solid var(--highlight-background-color);
 }
@@ -149,6 +149,7 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  text-align: center;
 }
 
 header nav .nav-brand img {
@@ -179,9 +180,15 @@ header nav .nav-sections ul  {
   justify-content: end;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 700;
+header nav .nav-sections ul > li > a {
+  text-decoration: none;
 }
+
+header nav .nav-sections ul > li > a:hover {
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 3px solid var(--link-color);
+  }
 
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
@@ -189,6 +196,11 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
+}
+
+header nav .nav-sections ul > li:hover {
+  font-weight: 900;
+  text-decoration: none;
 }
 
 @media (width >= 900px) {
@@ -280,6 +292,13 @@ header nav .nav-tools {
 }
 
 header nav .nav-auth button {
-  color: var(--text-color);
-  background-color: rgba(243, 242, 246, 1);
+  display:none;
+}
+
+@media (width >= 900px) {
+  header nav .nav-auth button {
+    display:unset;
+    color: var(--text-color);
+    background-color: rgb(243 246 242);
+  }
 }

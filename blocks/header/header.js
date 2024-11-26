@@ -1,5 +1,8 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-restricted-globals */
 import { getMetadata } from '../../scripts/aem.js';
-import { getActiveAudiences } from '../../scripts/utils.js';
+// import { getActiveAudiences } from '../../scripts/utils.js';
 import { loadFragment } from '../fragment/fragment.js';
 import authenticate from './auth.js';
 
@@ -96,12 +99,12 @@ export function decorateNavAuth() {
   auth.innerHTML = `<button type="button" id="logout" aria-label="Login">
             <span>Sign out</span>
           </button>`;
-    const logoutButton = auth.children[0];
-    logoutButton.addEventListener("click", () => {
-      auth.innerHTML = LOGIN_FORM;
-      window.localStorage.removeItem('auth');
-      location.reload();
-    });
+  const logoutButton = auth.children[0];
+  logoutButton.addEventListener('click', () => {
+    auth.innerHTML = LOGIN_FORM;
+    window.localStorage.removeItem('auth');
+    location.reload();
+  });
 }
 
 /**
@@ -130,6 +133,7 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+    brandLink.querySelector('img').setAttribute('alt', 'logo');
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -162,31 +166,30 @@ export default async function decorate(block) {
   // login section
   const auth = document.createElement('div');
   auth.classList.add('nav-auth');
-  console.log(getActiveAudiences());
-  if(window.localStorage.getItem("auth") === null) {
+  // console.log(getActiveAudiences());
+  if (window.localStorage.getItem('auth') === null) {
     auth.innerHTML = LOGIN_FORM;
     auth.addEventListener('click', () => {
-      const loginForm = document.getElementsByClassName('login-form')[0]; 
-      loginForm.style.display = "block"
-      loginForm.addEventListener("submit", (e) => {
+      const loginForm = document.getElementsByClassName('login-form')[0];
+      loginForm.style.display = 'block';
+      loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const username = document.getElementById('userName').value;
         const password = document.getElementById('password').value;
 
         authenticate(username, password).then((user) => {
-          console.log(user)
+          // console.log(user);
           const auth = document.getElementsByClassName('nav-auth')[0];
           auth.innerHTML = `<button type="button" id="logout" aria-label="Login">
             <span>Sign out</span>
           </button>`;
-          const logoutButton = document.getElementById("logout");
-          logoutButton.addEventListener("click", () => {
+          const logoutButton = document.getElementById('logout');
+          logoutButton.addEventListener('click', () => {
             auth.innerHTML = LOGIN_FORM;
             window.localStorage.removeItem('auth');
             const loginForm = document.getElementsByClassName('login-form')[0];
             loginForm.style.display = 'none';
           });
-          
         });
         // handle submit
       });
@@ -196,12 +199,12 @@ export default async function decorate(block) {
             <span>Sign out</span>
           </button>`;
     const logoutButton = auth.children[0];
-    logoutButton.addEventListener("click", () => {
+    logoutButton.addEventListener('click', () => {
       window.localStorage.removeItem('auth');
       location.reload();
     });
   }
-  
+
   nav.append(auth);
 
   const navWrapper = document.createElement('div');
