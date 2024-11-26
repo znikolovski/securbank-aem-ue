@@ -72,6 +72,29 @@
     ]
   },
   {
+    "id": "dm-asset-block",
+    "fields": [
+      {
+        "component": "custom-asset-namespace:custom-asset",
+        "name": "image",
+        "label": "Image",
+        "configUrl": "https://main--securbank-aem-ue--znikolovski.hlx.page/tools/assets-selector/image.config.json",
+        "valueType": "string"
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset-mimetype",
+        "valueType": "string",
+        "name": "imageMimeType"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "image",
     "fields": [
       {

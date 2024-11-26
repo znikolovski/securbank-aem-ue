@@ -24,6 +24,7 @@
     "components": [
       "text",
       "image",
+      "dm-asset-block",
       "button",
       "title",
       "hero",
