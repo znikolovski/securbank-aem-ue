@@ -44,7 +44,13 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "faq",
+        "feature",
+        "featurearticles",
+        "map",
+        "offer",
+        "forex"       
       ]
     }
   ]

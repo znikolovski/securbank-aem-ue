@@ -150,6 +150,71 @@
     ]
   },
   {
+    "id": "faq",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tags",
+        "value": "transactions",
+        "label": "Tag",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/securbank"
+      },
+      {
+        "component": "text-input",
+        "name": "variation",
+        "value": "master",
+        "label": "Variation",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "feature",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "text-area",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text-area",
+        "name": "text2",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "featurearticles",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "name": "tag",
+        "value": "",
+        "label": "Tag",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "forex",
     "fields": [
       {
@@ -248,6 +313,37 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "map",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "location",
+        "value": "",
+        "label": "Location",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "offer",
+    "fields": [
+      {
+        "component": "aem-content-fragment",
+        "name": "offerpath",
+        "value": "",
+        "label": "Offer Content Fragment path",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "variation",
+        "value": "",
+        "label": "Variation",
+        "valueType": "string"
       }
     ]
   }
