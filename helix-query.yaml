@@ -2,10 +2,11 @@ version: 1
 indices:
   articles:
     include:
-      - /**
+      - '/**'
     exclude:
-      - /securbank/playground/**
-      - /securbank/configuration
+      - '/securbank/playground/**'
+      - '/securbank/configuration'
+      - '/**.json'
     target: /query-index.json
     properties:
       lastModified:
@@ -16,4 +17,7 @@ indices:
         value: textContent(el)
       description:
         select: head > meta[name="description"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
         value: attribute(el, "content")
