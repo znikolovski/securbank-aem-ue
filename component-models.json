@@ -1,28 +1,17 @@
 [
   {
-    "id": "page-metadata",
+    "id": "image",
     "fields": [
       {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "pagetitle",
-        "value": "",
-        "label": "Page Title"
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:description",
-        "value": "",
-        "label": "Description"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "keywords",
-        "value": "",
-        "label": "Keywords",
-        "multi": true
+        "name": "imageAlt",
+        "label": "Alt Text"
       }
     ]
   },
@@ -30,18 +19,14 @@
     "id": "title",
     "fields": [
       {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "jcr:title",
-        "value": "",
-        "label": "Text"
+        "component": "text",
+        "name": "title",
+        "label": "Title"
       },
       {
         "component": "select",
-        "name": "type",
-        "value": "h1",
-        "label": "Type",
-        "valueType": "string",
+        "name": "titleType",
+        "label": "Title Type",
         "options": [
           {
             "name": "h1",
@@ -72,54 +57,27 @@
     ]
   },
   {
-    "id": "image",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "fileReference",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "alt",
-        "value": "Default alt",
-        "label": "Alt Text"
-      }
-    ]
-  },
-  {
     "id": "button",
     "fields": [
       {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "href",
-        "value": "",
+        "component": "aem-content",
+        "name": "link",
         "label": "Link"
       },
       {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "text",
-        "value": "",
+        "component": "text",
+        "name": "linkText",
         "label": "Text"
       },
       {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "title",
-        "value": "",
+        "component": "text",
+        "name": "linkTitle",
         "label": "Title"
       },
       {
         "component": "select",
-        "name": "type",
-        "value": "",
+        "name": "linkType",
         "label": "Type",
-        "valueType": "string",
         "options": [
           {
             "name": "default",
@@ -138,33 +96,18 @@
     ]
   },
   {
-    "id": "columns",
+    "id": "section",
     "fields": [
       {
-        "component": "text-input",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
-      },
-      {
-        "component": "text-input",
-        "valueType": "number",
-        "name": "rows",
-        "value": "",
-        "label": "Rows"
-      }
-    ]
-  },
-  {
-    "id": "cards",
-    "fields": [
-      {
-        "component": "text-input",
-        "name": "classes",
+        "component": "multiselect",
+        "name": "style",
         "label": "Style",
-        "valueType": "string",
-        "required": true        
+        "options": [
+          {
+            "name": "Highlight",
+            "value": "highlight"
+          }
+        ]
       }
     ]
   },
@@ -179,7 +122,7 @@
         "multi": false
       },
       {
-        "component": "text-area",
+        "component": "richtext",
         "name": "text",
         "value": "",
         "label": "Text",
@@ -188,14 +131,65 @@
     ]
   },
   {
-    "id": "section",
+    "id": "columns",
     "fields": [
       {
-        "component": "text-input",
-        "name": "style",
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
         "value": "",
-        "label": "Style",
-        "valueType": "string"
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "forex",
+    "fields": [
+      {
+        "component": "select",
+        "name": "baseCurrency",
+        "value": "AUD",
+        "label": "Base Currency",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Australian Dollar",
+            "value": "AUD"
+          },
+          {
+            "name": "US Dollar",
+            "value": "USD"
+          },
+          {
+            "name": "Pound Sterling",
+            "value": "GBP"
+          },
+          {
+            "name": "Canadian Dollar",
+            "value": "CAD"
+          },
+          {
+            "name": "Euro",
+            "value": "EUR"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fragment",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Reference"
       }
     ]
   },
@@ -254,148 +248,6 @@
             ]
           }
         ]
-      }      
-    ]
-  },
-  {
-    "id": "feature",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "text-area",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "text-area",
-        "name": "text2",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "forex",
-    "fields": [
-      {
-        "component": "select",
-        "name": "baseCurrency",
-        "value": "AUD",
-        "label": "Base Currency",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Australian Dollar",
-            "value": "AUD"
-          },
-          {
-            "name": "US Dollar",
-            "value": "USD"
-          },
-          {
-            "name": "Pound Sterling",
-            "value": "GBP"
-          },
-          {
-            "name": "Canadian Dollar",
-            "value": "CAD"
-          },
-          {
-            "name": "Euro",
-            "value": "EUR"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "map",
-    "fields": [
-      {
-        "component": "text-input",
-        "name": "location",
-        "value": "",
-        "label": "Location",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "offer",
-    "fields": [
-      {
-        "component": "aem-content-fragment",
-        "name": "offerpath",
-        "value": "",
-        "label": "Offer Content Fragment path",
-        "valueType": "string"
-      },
-      {
-        "component": "text-input",
-        "name": "variation",
-        "value": "",
-        "label": "Variation",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "featurearticles",
-    "fields": [
-      {
-        "component": "aem-tag",
-        "name": "tag",
-        "value": "",
-        "label": "Tag",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "fragment",
-    "fields": [
-      {
-        "component": "text-input",
-        "name": "fragmentpath",
-        "value": "",
-        "label": "Fragment Path",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "faq",
-    "fields": [
-      {
-        "component": "aem-tag",
-        "name": "tags",
-        "value": "transactions",
-        "label": "Tag",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/securbank"
-      },
-      {
-        "component": "text-input",
-        "name": "variation",
-        "value": "master",
-        "label": "Variation",
-        "valueType": "string"
       }
     ]
   }
