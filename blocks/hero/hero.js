@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+import { createOptimizedPicture } from '../../scripts/aem.js';
 import authenticate from '../../scripts/auth.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import { decorateNavAuth } from '../header/header.js';
@@ -85,8 +86,11 @@ function decorateUnAuthenticatedState(parent) {
 
 export default async function decorate(block) {
   let row = block.firstElementChild;
-  const bg = row.querySelector('picture');
-  block.append(bg);
+  const bg = row.querySelector('a');
+  const imageSrc = bg.href;
+  const optimisedImg = createOptimizedPicture(imageSrc, '', false, [{ width: '1200' }], true, 'HeroImage');
+  console.log(imageSrc)
+  block.append(optimisedImg);
   row.remove();
   const bgP = block.closest('p');
   if (bgP) bgP.remove();
