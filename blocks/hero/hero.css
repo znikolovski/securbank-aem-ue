@@ -233,6 +233,14 @@ main .hero img {
   background-color: white;
 }
 
+@media (width <= 1280px) {
+  .user-info {
+    left: 730px;
+    width: 300px;
+  }
+}
+
+
 .user-info .dashboard-mini {
   overflow: visible;
   padding: 40px;
