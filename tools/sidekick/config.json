@@ -2,5 +2,6 @@
 {
   "project": "AEM XWalk Boilerplate",
   "editUrlLabel": "AEM Editor",
+  "host": "www.securbankdemo.com",
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open"
 }
