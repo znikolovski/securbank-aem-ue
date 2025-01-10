@@ -5,12 +5,12 @@ import { decorateNavAuth } from '../header/header.js';
 
 function decorateAuthenticatedState(parent, user) {
   const USER_INFO = `<div class="dashboard-mini">
-      <span class="dashboard-mini__welcome">Welcome back ${user.firstName}!</span>
-      <div class="dashboard-mini__account-balance">
+      <span class="dashboard-mini-welcome">Welcome back ${user.firstName}!</span>
+      <div class="dashboard-mini-account-balance">
         <span class="dashboard-mini-account-balance-heading">Account Balance</span>
         <p class="dashboard-mini-account-balance-value">$1,920.00</p>
       </div>
-      <div class=dashboard-mini__quick-actions>
+      <div class=dashboard-mini-quick-actions>
         <span><a href="https://securbank-react.vercel.app/" target="_blank">View account information</a></span>
       </div>
     </div>
