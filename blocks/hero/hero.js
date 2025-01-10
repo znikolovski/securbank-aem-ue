@@ -7,8 +7,8 @@ function decorateAuthenticatedState(parent, user) {
   const USER_INFO = `<div class="dashboard-mini">
       <span class="dashboard-mini__welcome">Welcome back ${user.firstName}!</span>
       <div class="dashboard-mini__account-balance">
-        <span class="dashboard-mini__account-balance-heading">Account Balance</span>
-        <p class="dashboard-mini__account-balance-value">$1,920.00</p>
+        <span class="dashboard-mini-account-balance-heading">Account Balance</span>
+        <p class="dashboard-mini-account-balance-value">$1,920.00</p>
       </div>
       <div class=dashboard-mini__quick-actions>
         <span><a href="https://securbank-react.vercel.app/" target="_blank">View account information</a></span>
@@ -25,7 +25,7 @@ function decorateUnAuthenticatedState(parent) {
   const FORM = `<form class="login-form">
       <div id="login-message" class="login-form-message">
         <span>Welcome back!</span>
-        <p class="error-message" style="display:none"></p>
+        <p class="error-message" style="display:block"></p>
       </div>
       <div class="login-form-input">
         <div class="login-form-label">
@@ -66,11 +66,11 @@ function decorateUnAuthenticatedState(parent) {
     authenticate(username, password).then((user) => {
       // console.log(user);
       if (user === null) {
-        const errorMessage = document.getElementsByClassName('error_message')[0];
+        const errorMessage = document.getElementsByClassName('error-message')[0];
         errorMessage.style.display = 'block';
         errorMessage.textContent = 'Authentication failed.';
       } else {
-        const errorMessage = document.getElementsByClassName('error_message')[0];
+        const errorMessage = document.getElementsByClassName('error-message')[0];
         errorMessage.style.display = 'none';
         errorMessage.textContent = '';
         document.getElementById('log-in').remove();
