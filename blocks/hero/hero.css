@@ -6,6 +6,10 @@ main .hero-container {
   padding: 0;
 }
 
+main .hero-container h3 {
+text-align: center;
+}
+
 main .hero {
   position: relative;
   padding: 32px;
