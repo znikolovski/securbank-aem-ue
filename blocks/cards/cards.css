@@ -180,7 +180,13 @@
     flex-direction: row-reverse;
     padding: 0;
   }
-      
+
+  .home .cards > ul > li:nth-child(1) .button {
+    border: 2px solid #fff;
+    color: #fff;
+  }
+ 
+
 .home .cards > ul > li:nth-child(3) {
     grid-area: 2 / 2 / 3 / 3;
     background-color: #CBE7F0;

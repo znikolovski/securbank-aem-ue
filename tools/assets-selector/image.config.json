@@ -35,6 +35,28 @@
             ],
             "header": "File Type",
             "groupKey": "FileTypeGroup"
-        }
+        },
+        {
+            "fields": [
+              {
+                "element": "Number",
+                "name": "property=tiff:imageWidth",
+                "range": true,
+                "quiet": true,
+                "label": "Width",
+                "hideArrows": true,
+                "columns": 2,
+                "readOnly": true,
+                "defaultValue": [
+                  {
+                    "min": 0,
+                    "max": 1000
+                  }
+                ]
+              }
+            ],
+            "header": "Size",
+            "groupKey": "SizeGroup"
+          }
     ]
 }

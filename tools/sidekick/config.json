@@ -6,5 +6,9 @@
       "environments": [ "dev", "preview", "live" ],
       "event": "aemedit"
     }
-  ]
+  ],
+  "project": "SecurBank",
+  "editUrlLabel": "AEM Editor",
+  "host": "www.securbankdemo.work",
+  "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open"
 }

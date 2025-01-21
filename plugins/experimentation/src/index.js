@@ -456,11 +456,9 @@ export async function runExperiment(document, options, context) {
   if (experimentConfig.selectedVariant === experimentConfig.variantNames[0]) {
     document.body.classList.add(`experiment-${context.toClassName(experimentConfig.id)}`);
     document.body.classList.add(`variant-${context.toClassName(experimentConfig.selectedVariant)}`);
-    onPageActivation(() => {
-      context.sampleRUM('experiment', {
-        source: experimentConfig.id,
-        target: experimentConfig.selectedVariant,
-      });
+    context.sampleRUM('experiment', {
+      source: experimentConfig.id,
+      target: experimentConfig.selectedVariant,
     });
     return false;
   }
@@ -720,9 +718,7 @@ function adjustRumSampligRate(document, options, context) {
 }
 
 export async function loadEager(document, options, context) {
-  onPageActivation(() => {
-    adjustRumSampligRate(document, options, context);
-  });
+  adjustRumSampligRate(document, options, context);
   let res = await runCampaign(document, options, context);
   if (!res) {
     res = await runExperiment(document, options, context);

@@ -6,20 +6,6 @@
     ]
   },
   {
-    "id": "columns",
-    "components": []
-  },
-  {
-    "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title",
-      "creditcardsummary"
-    ]
-  },
-  {
     "id": "section",
     "components": [
       "text",
@@ -30,16 +16,17 @@
       "hero",
       "cards",
       "columns",
+      "fragment",
+      "faq",
       "feature",
       "simple-form",
       "form",
       "form-embed",
       "forex",
+      "featurearticles",
       "map",
       "offer",
-      "creditcardsummary",
-      "featurearticles",
-      "fragment"
+      "forex"
     ]
   },
   {
@@ -67,6 +54,21 @@
       "radio-group",
       "text-input",
       "wizard"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   }
 ]

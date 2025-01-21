@@ -182,7 +182,7 @@
         "name": "classes",
         "label": "Style",
         "valueType": "string",
-        "required": true        
+        "required": true
       }
     ]
   },
@@ -271,7 +271,7 @@
             ]
           }
         ]
-      }  
+      }
     ]
   },
   {
@@ -457,16 +457,16 @@
   {
     "id": "form",
     "fields": [
-       {
+      {
         "component": "select",
         "name": "thankYouOption",
         "label": "On Submit",
         "valueType": "string",
         "options": [
-              {
-                  "name": "Show message",
-                  "value": "message"
-              }
+          {
+            "name": "Show message",
+            "value": "message"
+          }
         ]
       },
       {
@@ -474,7 +474,14 @@
         "name": "thankYouMessage",
         "label": "Message Content",
         "valueType": "string",
-        "condition": { "==": [{ "var": "thankYouOption" }, "message"] }
+        "condition": {
+          "==": [
+            {
+              "var": "thankYouOption"
+            },
+            "message"
+          ]
+        }
       },
       {
         "component": "select",
@@ -498,7 +505,14 @@
         "name": "enableRestEndpointPost",
         "label": "Enable POST request",
         "valueType": "string",
-        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/restendpoint"] }
+        "condition": {
+          "==": [
+            {
+              "var": "actionType"
+            },
+            "fd/af/components/guidesubmittype/restendpoint"
+          ]
+        }
       },
       {
         "component": "text",
