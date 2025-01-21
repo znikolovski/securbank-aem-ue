@@ -164,6 +164,15 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+function preloadFile(href, as) {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = as;
+  link.crossOrigin = 'anonymous';
+  link.href = href;
+  document.head.appendChild(link);
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
@@ -188,6 +197,9 @@ async function loadEager(doc) {
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
     await runEager(document, experimentationOptions, pluginContext);
   }
+
+  preloadFile('/scripts/preact.js', 'script');
+  preloadFile('/scripts/htm.js', 'script');
 
   if (main) {
     decorateMain(main);
