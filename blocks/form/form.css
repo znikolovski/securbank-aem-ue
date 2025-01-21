@@ -56,10 +56,15 @@
     --form-wizard-padding-bottom: 160px;
     --form-wizard-step-legend-padding: 10px;
     --form-wizard-step-legend-font-size: 1.1rem;
+    --form-field-gap: 5px;
 }
 
 * {
     box-sizing: border-box;
+}
+
+main .form pre {
+    display: none;
 }
 
 form output {
@@ -198,19 +203,46 @@ main .form form p {
 
 main .form form .checkbox-wrapper, main .form form .radio-wrapper {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     margin: 0;
     gap: 8px;
 }
 
-main .form form fieldset > .radio-wrapper:first-of-type,
-main .form form fieldset > .checkbox-wrapper:first-of-type {
-    margin: var(--form-field-gap);
+main .form form fieldset.cards.horizontal {
+    column-gap: 0;
+}
+
+main .form form fieldset > .radio-wrapper,
+main .form form fieldset > .checkbox-wrapper {
+    margin-left: var(--form-field-gap);
 }
 
 main .form .radio-wrapper  label,
 main .form .checkbox-wrapper label {
-    flex-basis: calc(100% - 28px);
+    flex-basis: calc(100% - 24px);
+}
+
+main .form form fieldset.cards > .radio-wrapper > label,
+main .form form fieldset.cards > .checkbox-wrapper > label {
+    display: flex;
+    gap: 1rem;
+    margin: 0 0 1rem;
+    border: 1px solid #dad6d6;
+    padding: 0.6rem;
+    cursor: pointer;
+    align-items: end;
+}
+
+main .form form fieldset.cards.horizontal > .radio-wrapper > label,
+main .form form fieldset.cards.horizontal > .checkbox-wrapper > label
+{
+    min-width: fit-content;
+}
+
+main .form form fieldset.cards > .radio-wrapper > input:checked ~ label,
+main .form form fieldset.cards > .checkbox-wrapper > input:checked ~ label{
+    border: 1px solid #1c3fca;
+    background-color: #F3F6FD;
 }
 
 input::file-selector-button {
@@ -249,6 +281,11 @@ main .form button:disabled {
     background-color: var(--form-input-disable-color);
 }
 
+main .form form fieldset.cards > .radio-wrapper > input,
+main .form form fieldset.cards > .checkbox-wrapper > input{
+    width: 0;
+}
+
 main .file-wrapper.decorated input[type="file"] {
     display: none;
 }
@@ -262,12 +299,29 @@ main .file-wrapper .field-dropregion {
     text-align: center;
 }
 
-main .form form .item-remove {
-    padding: 0;
-    background: #fff;
-    padding-left: 10px;
+/* Repeatable Styling */
+main .form form .repeat-actions {
+    grid-column: span 12;
+    order: 2;
 }
 
+main .form form .item-remove,
+main .form form .item-add {
+    overflow: unset;
+}
+
+main .form form .item-remove {
+    justify-self: end;
+    grid-column: span 12;
+    order: 1;
+}
+
+main .form form div[data-variant="addRemoveButtons"] .item-add,
+main .form form div[data-variant="addRemoveButtons"] .item-remove {
+    display: block;
+}
+
+/* End of Repeatable Styling */
 main .form .file-description{
   display: flex;
   gap: 20px;
@@ -279,13 +333,6 @@ main .form .file-description .file-description-name {
   cursor: pointer;
   text-decoration: underline;
   flex: 1;
-}
-
-main .form form .item-remove span {
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: url('/icons/delete.svg') no-repeat;
 }
 
 main .file-wrapper .file-description button {
@@ -437,12 +484,17 @@ main .form form .panel-wrapper{
   gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
 }
 
+main .form form .repeat-wrapper{
+    display: grid;
+    grid-template-columns: repeat(var(--form-columns), minmax(0, 1fr));
+    gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
+}
+
 main .form form .wizard.left .panel-wrapper{
   flex: 1;
 }
 
 @media (width >= 1200px) {
-    main .form form .checkbox-wrapper,
     main .form form .form-textarea-wrapper,
     main .form form .file-wrapper,
     main .form form .panel-wrapper {
@@ -545,4 +597,14 @@ main .form .form-image-wrapper  img {
 main form .wizard > .current-wizard-step.panel-wrapper:first-of-type ~ .wizard-button-wrapper > .wizard-button-prev,
 main form .wizard > .current-wizard-step.panel-wrapper:last-of-type ~ .wizard-button-wrapper > .wizard-button-next {
     display: none;
+}
+
+main .form form:not(.edit-mode) .captcha-wrapper{
+    display: none ;
+}
+
+main .form form .horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: inherit;
 }
