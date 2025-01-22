@@ -243,6 +243,12 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
+main .section.flex {
+  display: flex;
+  max-width: 1280px;
+  gap: 10px;
+}
+
 .section h2 {
   text-align: center;
   font-size: 36px;

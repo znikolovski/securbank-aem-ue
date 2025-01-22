@@ -27,6 +27,10 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Flex",
+              "value": "flex"
             }
           ]
         }
