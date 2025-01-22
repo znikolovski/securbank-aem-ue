@@ -1,6 +1,7 @@
 :root {
     --background-color-primary: #fff;
     --label-color: #666;
+    --link-hover-color: #3E6470;
     --border-color: #818a91;
     --form-error-color: #ff5f3f;
     --button-primary-color: #5F8DDA;
@@ -40,7 +41,7 @@
     --form-button-color: var(--background-color-primary);
     --form-button-font-size: var(--form-font-size-s);
     --form-button-background-color: var(--button-primary-color);
-    --form-button-background-hover-color: var(--button-primary-hover-color);
+    --form-button-background-hover-color: #3E6470;
     --form-button-border: 2px solid transparent;
     --form-button-padding:15px 50px;
     --form-upload-color: var(--form-label-color);
@@ -121,7 +122,7 @@ main .form form .field-invalid .field-description {
 main .form input,
 main .form textarea,
 main .form select {
-    background-color: var(--form-input-background-color);
+    /* background-color: var(--form-input-background-color);
     border: var(--form-input-border-size) solid var(--form-input-border-color);
     width: 100%;
     height: 42px;
@@ -131,7 +132,21 @@ main .form select {
     max-width: unset;
     margin-top: .5rem;
     margin-bottom: 1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.25rem; */
+    overflow: visible;
+    width: 100%;
+    height: 42px;
+    padding-left: 20px;
+    white-space: nowrap;
+    line-height: 20px;
+    margin-top: 0;
+    text-align: left;
+    font-family: 'Adobe Clean', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    border: hidden;
+    background-color: rgba(243 242 246 / 100%);
 }
 
 main .form select {
@@ -253,22 +268,16 @@ input::file-selector-button {
 }
 
 main .form button {
-    color: var(--form-button-color);
-    background: var(--form-button-background-color);
-    border: var(--form-button-border);
-    padding: var(--form-button-padding);
-    font-size: var(--form-button-font-size);
-    border-radius: unset;
-    width: 100%;
+    font-size: var(--body-font-size-s);
 }
-
+/* 
 main form .file-wrapper > button{
     display: flex;
 }
 
 main .form button:hover {
     background: var(--form-button-background-hover-color);
-}
+} */
 
 main .submit-wrapper{
     width: var(--form-submit-width);
@@ -361,11 +370,11 @@ main .form .button-wrapper button {
     cursor:pointer
 }
 
-main .form .button-wrapper button:hover {
+/* main .form .button-wrapper button:hover {
     border: 3px solid var(#fff);
     color: #fff;
     background-color: var(--button-secondary-color);
-}
+} */
 
 main .form .button-wrapper button[disabled] {
     cursor:auto
