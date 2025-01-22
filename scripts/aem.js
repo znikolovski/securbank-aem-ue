@@ -236,14 +236,14 @@ function createOptimizedPicture(
   eager = false,
   breakpoints = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }],
   dm = false,
-  imageName = ''
+  imageName = '',
 ) {
   const url = new URL(src, window.location.href);
   const picture = document.createElement('picture');
   const { pathname } = url;
   const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
 
-  if(dm && imageName !== '') {
+  if (dm && imageName !== '') {
     // webp
     breakpoints.forEach((br) => {
       const source = document.createElement('source');

@@ -50,6 +50,9 @@
         "featurearticles",
         "map",
         "offer",
+        "simple-form",
+        "form",
+        "form-embed",
         "forex"       
       ]
     }

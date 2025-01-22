@@ -10,7 +10,6 @@
     "components": [
       "text",
       "image",
-      "dm-asset-block",
       "button",
       "title",
       "hero",
@@ -19,13 +18,12 @@
       "fragment",
       "faq",
       "feature",
-      "simple-form",
-      "form",
-      "form-embed",
-      "forex",
       "featurearticles",
       "map",
       "offer",
+      "simple-form",
+      "form",
+      "form-embed",
       "forex"
     ]
   },
@@ -33,27 +31,6 @@
     "id": "cards",
     "components": [
       "card"
-    ]
-  },
-  {
-    "id": "form",
-    "components": [
-      "checkbox",
-      "date-input",
-      "drop-down",
-      "email",
-      "file-input",
-      "form-button",
-      "form-fragment",
-      "form-image",
-      "form-reset-button",
-      "form-submit-button",
-      "number-input",
-      "panel",
-      "plain-text",
-      "radio-group",
-      "text-input",
-      "wizard"
     ]
   },
   {
@@ -70,6 +47,34 @@
       "button",
       "title",
       "form"
+    ]
+  },
+  {
+    "id": "form",
+    "components": [
+      "captcha",
+      "checkbox",
+      "checkbox-group",
+      "date-input",
+      "drop-down",
+      "email",
+      "file-input",
+      "form-accordion",
+      "form-button",
+      "form-fragment",
+      "form-image",
+      "form-modal",
+      "form-reset-button",
+      "form-submit-button",
+      "number-input",
+      "panel",
+      "plain-text",
+      "radio-group",
+      "rating",
+      "telephone-input",
+      "text-input",
+      "tnc",
+      "wizard"
     ]
   }
 ]
