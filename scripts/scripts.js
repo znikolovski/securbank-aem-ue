@@ -9,9 +9,7 @@ import {
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
-  waitForFirstImage,
-  loadSection,
-  loadSections,
+  loadBlocks,
   loadCSS,
   toCamelCase,
   toClassName,
@@ -69,14 +67,6 @@ export function getAllMetadata(scope) {
       return res;
     }, {});
 }
-
-window.hlx.plugins.add('experimentation', {
-  condition: () => getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length,
-  options: { audiences: getAudiences() },
-  url: '/plugins/experimentation/src/index.js',
-});
 
 // Define an execution context
 const pluginContext = {
@@ -198,15 +188,14 @@ async function loadEager(doc) {
     await runEager(document, experimentationOptions, pluginContext);
   }
 
-  preloadFile('/scripts/preact.js', 'script');
-  preloadFile('/scripts/htm.js', 'script');
+  preloadFile('./scripts/preact.js', 'script');
+  preloadFile('./scripts/htm.js', 'script');
 
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
     await Promise.all([
       martechLoadedPromise.then(martechEager),
-      loadSection(main.querySelector('.section'), waitForFirstImage)
     ]);
   }
 
@@ -235,7 +224,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
-  await loadSections(main);
+  await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
@@ -271,8 +260,7 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   window.setTimeout(() => {
-    window.hlx.plugins.load('delayed');
-    window.hlx.plugins.run('loadDelayed');
+    martechDelayed();
     // eslint-disable-next-line import/no-cycle
     return import('./delayed.js');
   }, 3000);
@@ -281,9 +269,7 @@ function loadDelayed() {
 }
 
 async function loadPage() {
-  await window.hlx.plugins.load('eager');
   await loadEager(document);
-  await window.hlx.plugins.load('lazy');
   await loadLazy(document);
   loadDelayed();
 }
