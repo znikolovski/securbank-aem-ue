@@ -89,7 +89,7 @@ export default async function decorate(block) {
   const bg = row.querySelector('a');
   const imageSrc = bg.href;
   const optimisedImg = createOptimizedPicture(imageSrc, '', false, [{ width: '1200' }], true, 'HeroImage');
-  console.log(imageSrc)
+  console.log(imageSrc);
   block.append(optimisedImg);
   row.remove();
   const bgP = block.closest('p');
