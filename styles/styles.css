@@ -210,16 +210,6 @@ main img {
   height: 48px;
 }
 
-@media (width >= 900px) {
-  /* stylelint-disable-next-line selector-class-pattern */
-  .icon-securbank_logo {
-    width: 100%;
-    height: 100%;
-  }
-  
-}
-
-
 main .section {
   padding: 12px 0;
 }
@@ -247,6 +237,37 @@ main .section.flex {
   display: flex;
   max-width: 1280px;
   gap: 10px;
+}
+
+main .section.thirds > :first-child {
+  flex-basis: 33.33%; 
+  margin: 0;
+}
+
+main .section.thirds > div {
+  flex-basis: 66%; 
+  margin: 0;
+}
+
+main .section.registration {
+  background-image: url(/icons/visual.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 400px;
+  align-items: flex-start;
+  margin: 0 auto 50px auto;
+}
+
+main .section.registration > .default-content-wrapper {
+  margin: 0 auto 0 auto;
+  width: 300px;
+}
+
+main .section.registration > .form-wrapper {
+  width: 300px;
 }
 
 .section h2 {

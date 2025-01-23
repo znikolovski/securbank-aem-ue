@@ -31,6 +31,10 @@
             {
               "name": "Flex",
               "value": "flex"
+            },
+            {
+              "name": "Registration",
+              "value": "registration"
             }
           ]
         }
