@@ -258,7 +258,7 @@ main .section.registration {
   flex-direction: column;
   padding-left: 400px;
   align-items: flex-start;
-  margin: 0 auto 50px auto;
+  margin: 50px auto 50px auto;
 }
 
 main .section.registration > .default-content-wrapper {
