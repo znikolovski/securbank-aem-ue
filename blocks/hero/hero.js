@@ -50,7 +50,7 @@ function decorateUnAuthenticatedState(parent) {
         </div>
       </div>
       <div class="login-form-forgot-password">
-        <span>Forgot user ID or password?</span>
+        <span>New to SecurBank? <a href="/account-registration">Register for an account<a/></span>
       </div>
     </form>`;
 
