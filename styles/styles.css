@@ -290,6 +290,7 @@ main .section.registration > .form-wrapper {
     margin: 0 auto 0 auto;
     width: 100%;
     padding-left: 0px;
+    padding-top: 0px;
   }
   
   main .section.registration > .form-wrapper {
