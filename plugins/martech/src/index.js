@@ -126,7 +126,7 @@ function getDefaultAlloyConfiguration() {
  * @returns a promise that the library was loaded and configured
  */
 async function loadAndConfigureAlloy(instanceName, webSDKConfig) {
-  await import('./alloy.min.js');
+  // await import('./alloy.min.js');
   try {
     await window[instanceName]('configure', webSDKConfig);
     isAlloyConfigured = true;
