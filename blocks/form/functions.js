@@ -1,3 +1,5 @@
+import { sampleRUM } from '../../scripts/aem.js';
+
 /**
  * Get Full Name
  * @name getFullName Concats first name and last name
@@ -28,5 +30,14 @@ function days(endDate, startDate) {
   return Math.floor(diffInMs / (1000 * 60 * 60 * 24));
 }
 
+/**
+ * sends data to rum server.
+ * @param {object} payload
+ * @param {object} globals
+ */
+const sendDataToRum = (payload, globals) => {
+  sampleRUM('buttonClick', { source: 'click', target: { payload, globals } });
+};
+
 // eslint-disable-next-line import/prefer-default-export
-export { getFullName, days };
+export { getFullName, days, sendDataToRum };

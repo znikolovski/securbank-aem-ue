@@ -126,7 +126,7 @@ function getDefaultAlloyConfiguration() {
  * @returns a promise that the library was loaded and configured
  */
 async function loadAndConfigureAlloy(instanceName, webSDKConfig) {
-  // await import('./alloy.min.js');
+  await import('./alloy.min.js');
   try {
     await window[instanceName]('configure', webSDKConfig);
     isAlloyConfigured = true;
@@ -573,7 +573,9 @@ export async function martechLazy() {
   }
 
   if (!config.personalization && config.performanceOptimized) {
-    await loadAndConfigureAlloy(config.alloyInstanceName, alloyConfig);
+    if(!config.launchUrls) {
+      await loadAndConfigureAlloy(config.alloyInstanceName, alloyConfig);
+    }
     sendAnalyticsEvent({ eventType: 'web.webpagedetails.pageViews' });
   } else if (!config.performanceOptimized) {
     const renderDecisionResponse = await sendEvent({ renderDecisions: true, decisionScopes: ['__view__'] });
