@@ -35,9 +35,9 @@ function days(endDate, startDate) {
  * @param {object} payload
  * @param {object} globals
  */
-const sendDataToRum = (payload, globals) => {
+function sendDataToRum(payload, globals) {
   sampleRUM('buttonClick', { source: 'click', target: { payload, globals } });
-};
+}
 
 // eslint-disable-next-line import/prefer-default-export
 export { getFullName, days, sendDataToRum };
