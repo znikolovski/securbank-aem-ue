@@ -62,7 +62,10 @@ function analyticsTrackPageViews(document, additionalXdmFields = {}) {
 
 function analyticsTrackButtonClick(payload, formData, formContext, linkType = 'button', additionalXdmFields = {}) {
   const jsonString = JSON.stringify(payload || {});
-
+  let action = '';
+  if (formContext) {
+    action = formContext.action;
+  }
   console.log(formData);
 
   const xdmData = {
@@ -70,7 +73,7 @@ function analyticsTrackButtonClick(payload, formData, formContext, linkType = 'b
     web: {
       webInteraction: {
         // eslint-disable-next-line no-nested-ternary
-        name: formContext?.action,
+        name: action,
         linkClicks: {
           value: 1,
         },
@@ -111,7 +114,9 @@ function santizedFormDataWithContext(globals, currentFormContext) {
         data, analytics, queryParams, ...formDataPayload
       } = formData;
       removeUndefinedKeys(formDataPayload);
-      removeUndefinedKeys(formDataPayload?.form);
+      if (formDataPayload) {
+        removeUndefinedKeys(formDataPayload.form);
+      }
       return JSON.parse(JSON.stringify(formDataPayload));
     }
     return formData;
