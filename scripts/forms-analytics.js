@@ -61,15 +61,17 @@ export function createInlineScript(document, element, innerHTML, type) {
  */
 async function sendAnalyticsEvent(xdmData) {
   // eslint-disable-next-line no-undef
-  if (!alloy) {
-    console.warn('alloy not initialized, cannot send analytics event');
-    return Promise.resolve();
-  }
+  // if (!alloy) {
+  //   console.warn('alloy not initialized, cannot send analytics event');
+  //   return Promise.resolve();
+  // }
   // eslint-disable-next-line no-undef
-  return alloy('sendEvent', {
-    documentUnloading: true,
-    xdm: xdmData,
-  });
+  // return alloy('sendEvent', {
+  //   documentUnloading: true,
+  //   xdm: xdmData,
+  // });
+
+  window.adobeDatalayer.push(xdmData);
 }
 
 /**
@@ -139,4 +141,39 @@ export async function analyticsTrackButtonClick(payload, formData, formContext, 
   };
 
   return sendAnalyticsEvent(xdmData);
+}
+
+/**
+   * Filters out all defined values from the form data using the globals object.
+   * @param {object} globaObj- Globals variables object containing form configurations.
+   * @returns {object} -Object containing only defined values.
+   */
+export const santizedFormData = (globaObj) => JSON.parse(JSON.stringify(globaObj.functions.exportData()));
+/**
+   * Removes all undefined keys from the form datand reduces overall size of the object.
+   * @param {object} jsonObj
+   */
+const removeUndefinedKeys = (jsonObj) => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [key, value] of Object.entries(jsonObj)) {
+    if (value === null || value === undefined) delete jsonObj[key];
+  }
+};
+
+export function santizedFormDataWithContext(globals, currentFormContext) {
+  try {
+    const formData = (Object.prototype.hasOwnProperty.call(globals, 'form') && Object.prototype.hasOwnProperty.call(globals, 'functions')) ? globals.functions.exportData() : globals;
+    formData.currentFormContext = currentFormContext;
+    if (formData.form) {
+      const {
+        data, analytics, queryParams, ...formDataPayload
+      } = formData;
+      removeUndefinedKeys(formDataPayload);
+      removeUndefinedKeys(formDataPayload?.form);
+      return JSON.parse(JSON.stringify(formDataPayload));
+    }
+    return formData;
+  } catch (ex) {
+    return null;
+  }
 }
