@@ -272,8 +272,7 @@ main .hero img {
 .dashboard-mini__account-balance-value {
   width: 140px;
   white-space: nowrap;
-  line-height: 18px;
-  margin-top: 15px;
+  line-height: 45px;
   text-align: left;
   font-family: 'Adobe Clean', sans-serif;
   font-style: normal;
