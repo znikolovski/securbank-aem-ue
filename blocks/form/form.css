@@ -367,7 +367,8 @@ main .file-wrapper .file-description button::after{
 }
 
 main .form .button-wrapper button {
-    cursor:pointer
+    cursor:pointer;
+    line-height: 1.5;
 }
 
 /* main .form .button-wrapper button:hover {
