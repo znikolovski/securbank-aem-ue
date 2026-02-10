@@ -1,0 +1,133 @@
+/* Import component-specific tokens */
+@import url('./columns-highlight-tokens.css');
+
+/* Container overrides */
+.columns-highlight-container {
+  padding: 0;
+}
+
+.columns-highlight-container .columns-highlight-wrapper {
+  max-width: unset;
+  padding: var(--columns-highlight-section-padding);
+  background: var(--columns-highlight-section-background);
+}
+
+/* Main block layout */
+.columns-highlight > div {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--columns-highlight-max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.columns-highlight img {
+  width: 100%;
+}
+
+/* Image column */
+.columns-highlight > div > .columns-highlight-img-col {
+  order: 0;
+}
+
+.columns-highlight > div > .columns-highlight-img-col img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: var(--columns-highlight-image-min-height);
+  object-fit: var(--columns-highlight-image-object-fit);
+  border-radius: var(--columns-highlight-image-border-radius);
+}
+
+/* Text content column */
+.columns-highlight > div > div {
+  order: 1;
+}
+
+.columns-highlight > div > div:not(.columns-highlight-img-col) {
+  background: var(--columns-highlight-panel-background);
+  padding: var(--columns-highlight-panel-padding);
+  border-radius: var(--columns-highlight-panel-border-radius);
+  position: var(--columns-highlight-panel-position);
+  z-index: var(--columns-highlight-panel-z-index);
+}
+
+/* Heading */
+.columns-highlight h1,
+.columns-highlight h2,
+.columns-highlight h3 {
+  font-family: var(--columns-highlight-heading-font-family);
+  font-size: var(--columns-highlight-heading-font-size);
+  font-weight: var(--columns-highlight-heading-font-weight);
+  font-style: var(--columns-highlight-heading-font-style);
+  line-height: var(--columns-highlight-heading-line-height);
+  letter-spacing: var(--columns-highlight-heading-letter-spacing);
+  text-transform: var(--columns-highlight-heading-text-transform);
+  color: var(--columns-highlight-heading-color);
+  margin: 0 0 var(--columns-highlight-heading-margin-bottom) 0;
+}
+
+/* Bold lead paragraph */
+.columns-highlight p strong {
+  font-family: var(--columns-highlight-lead-font-family);
+  font-size: var(--columns-highlight-lead-font-size);
+  font-weight: var(--columns-highlight-lead-font-weight);
+  font-style: var(--columns-highlight-lead-font-style);
+  line-height: var(--columns-highlight-lead-line-height);
+  color: var(--columns-highlight-lead-color);
+}
+
+/* Body text */
+.columns-highlight p {
+  font-family: var(--columns-highlight-body-font-family);
+  font-size: var(--columns-highlight-body-font-size);
+  font-weight: var(--columns-highlight-body-font-weight);
+  font-style: var(--columns-highlight-body-font-style);
+  line-height: var(--columns-highlight-body-line-height);
+  letter-spacing: var(--columns-highlight-body-letter-spacing);
+  color: var(--columns-highlight-body-color);
+  margin: 0 0 var(--columns-highlight-body-margin-bottom) 0;
+}
+
+/* Links */
+.columns-highlight a:any-link {
+  color: var(--columns-highlight-link-color);
+  text-decoration: var(--columns-highlight-link-text-decoration);
+  font-weight: var(--columns-highlight-link-font-weight);
+  transition: color var(--columns-highlight-transition-duration) var(--columns-highlight-transition-timing);
+}
+
+.columns-highlight a:hover {
+  color: var(--columns-highlight-link-hover-color);
+}
+
+/* Desktop layout */
+@media (width >= 900px) {
+  .columns-highlight > div {
+    flex-direction: row;
+    align-items: stretch;
+    gap: var(--columns-highlight-gap);
+  }
+
+  .columns-highlight > div > div {
+    order: unset;
+  }
+
+  .columns-highlight > div > .columns-highlight-img-col {
+    flex: var(--columns-highlight-image-flex);
+  }
+
+  .columns-highlight > div > div:not(.columns-highlight-img-col) {
+    flex: var(--columns-highlight-content-flex);
+    margin-left: var(--columns-highlight-panel-margin-left);
+    margin-top: var(--columns-highlight-panel-margin-top);
+    align-self: flex-start;
+  }
+}
+
+/* Mobile: stack columns */
+@media (width < 900px) {
+  .columns-highlight > div > div:not(.columns-highlight-img-col) {
+    margin-top: -24px;
+  }
+}

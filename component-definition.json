@@ -248,6 +248,36 @@
           }
         },
         {
+          "title": "Hero Barista",
+          "id": "hero-barista",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Hero Barista",
+                  "model": "hero-barista"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Columns Highlight",
+          "id": "columns-highlight",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Columns Highlight",
+                  "model": "columns-highlight"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Map",
           "id": "map",
           "plugins": {

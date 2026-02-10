@@ -502,6 +502,105 @@
     ]
   },
   {
+    "id": "hero-barista",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrow",
+        "label": "Eyebrow Text",
+        "description": "Short label displayed above the heading (e.g. MY BARISTA)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading",
+        "description": "Main heading text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaText",
+        "label": "CTA Text",
+        "description": "Call-to-action link text (e.g. Subscribe)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLink",
+        "label": "CTA Link",
+        "description": "URL for the call-to-action link"
+      }
+    ]
+  },
+  {
+    "id": "columns-highlight",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading",
+        "description": "Main heading text"
+      },
+      {
+        "component": "text-area",
+        "valueType": "string",
+        "name": "leadText",
+        "label": "Lead Text",
+        "description": "Bold introductory paragraph"
+      },
+      {
+        "component": "text-area",
+        "valueType": "string",
+        "name": "bodyText",
+        "label": "Body Text",
+        "description": "Main body content"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkText",
+        "label": "Link Text",
+        "description": "Inline link text (e.g. instructions)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkUrl",
+        "label": "Link URL",
+        "description": "URL for the inline link"
+      }
+    ]
+  },
+  {
     "id": "map",
     "fields": [
       {
