@@ -43,7 +43,7 @@
   {
     "id": "columns-highlight",
     "components": [
-      "column"
+      "columns-highlight-item"
     ]
   },
   {
