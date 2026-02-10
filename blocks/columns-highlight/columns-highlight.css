@@ -89,15 +89,15 @@
   margin: 0 0 var(--columns-highlight-body-margin-bottom) 0;
 }
 
-/* Links */
-.columns-highlight a:any-link {
+/* Links (exclude buttons so default EDS button styles apply) */
+.columns-highlight a:any-link:not(.button) {
   color: var(--columns-highlight-link-color);
   text-decoration: var(--columns-highlight-link-text-decoration);
   font-weight: var(--columns-highlight-link-font-weight);
   transition: color var(--columns-highlight-transition-duration) var(--columns-highlight-transition-timing);
 }
 
-.columns-highlight a:hover {
+.columns-highlight a:hover:not(.button) {
   color: var(--columns-highlight-link-hover-color);
 }
 
