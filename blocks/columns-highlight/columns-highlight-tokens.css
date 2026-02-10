@@ -1,0 +1,80 @@
+/* columns-highlight component tokens */
+
+/* Extracted from Figma node 2049:3 - "What you gain" */
+
+.columns-highlight {
+  /* ===== LAYOUT & DIMENSIONS ===== */
+  --columns-highlight-max-width: 1280px;
+  --columns-highlight-min-height: 500px;
+  --columns-highlight-section-padding: 64px 0;
+  --columns-highlight-gap: 0;
+  --columns-highlight-image-flex: 0 0 40%;
+  --columns-highlight-content-flex: 1;
+
+  /* ===== SECTION BACKGROUND ===== */
+  --columns-highlight-section-background: #fff;
+
+  /* ===== IMAGE PROPERTIES ===== */
+  --columns-highlight-image-border-radius: 0;
+  --columns-highlight-image-object-fit: cover;
+  --columns-highlight-image-min-height: 420px;
+
+  /* ===== TEXT PANEL ===== */
+  --columns-highlight-panel-background: #d9edf2;
+  --columns-highlight-panel-padding: 48px 64px;
+  --columns-highlight-panel-border-radius: 0;
+  --columns-highlight-panel-margin-left: -80px;
+  --columns-highlight-panel-margin-top: 60px;
+  --columns-highlight-panel-position: relative;
+  --columns-highlight-panel-z-index: 1;
+
+  /* ===== TYPOGRAPHY - HEADING ===== */
+  --columns-highlight-heading-font-family: var(--heading-font-family);
+  --columns-highlight-heading-font-size: 36px;
+  --columns-highlight-heading-font-weight: 900;
+  --columns-highlight-heading-font-style: normal;
+  --columns-highlight-heading-line-height: 1.2;
+  --columns-highlight-heading-letter-spacing: normal;
+  --columns-highlight-heading-text-transform: none;
+  --columns-highlight-heading-color: var(--text-color);
+  --columns-highlight-heading-margin-bottom: 20px;
+
+  /* ===== TYPOGRAPHY - LEAD/BOLD TEXT ===== */
+  --columns-highlight-lead-font-family: var(--body-font-family);
+  --columns-highlight-lead-font-size: 16px;
+  --columns-highlight-lead-font-weight: 700;
+  --columns-highlight-lead-font-style: normal;
+  --columns-highlight-lead-line-height: 1.5;
+  --columns-highlight-lead-color: var(--text-color);
+  --columns-highlight-lead-margin-bottom: 16px;
+
+  /* ===== TYPOGRAPHY - BODY ===== */
+  --columns-highlight-body-font-family: var(--body-font-family);
+  --columns-highlight-body-font-size: 16px;
+  --columns-highlight-body-font-weight: 400;
+  --columns-highlight-body-font-style: normal;
+  --columns-highlight-body-line-height: 1.6;
+  --columns-highlight-body-letter-spacing: normal;
+  --columns-highlight-body-color: var(--text-color);
+  --columns-highlight-body-margin-bottom: 16px;
+
+  /* ===== TYPOGRAPHY - LINK ===== */
+  --columns-highlight-link-color: var(--link-color);
+  --columns-highlight-link-text-decoration: underline;
+  --columns-highlight-link-font-weight: 400;
+
+  /* ===== HOVER STATES ===== */
+  --columns-highlight-link-hover-color: var(--link-hover-color);
+
+  /* ===== BORDERS ===== */
+  --columns-highlight-border-width: 0;
+  --columns-highlight-border-style: none;
+  --columns-highlight-border-color: transparent;
+
+  /* ===== SHADOWS ===== */
+  --columns-highlight-box-shadow: none;
+
+  /* ===== TRANSITIONS ===== */
+  --columns-highlight-transition-duration: 200ms;
+  --columns-highlight-transition-timing: ease;
+}

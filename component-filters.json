@@ -15,6 +15,7 @@
       "hero",
       "cards",
       "columns",
+      "columns-highlight",
       "fragment",
       "faq",
       "feature",
@@ -37,6 +38,12 @@
     "id": "columns",
     "components": [
       "column"
+    ]
+  },
+  {
+    "id": "columns-highlight",
+    "components": [
+      "columns-highlight-item"
     ]
   },
   {
