@@ -41,6 +41,12 @@
     ]
   },
   {
+    "id": "columns-highlight",
+    "components": [
+      "column"
+    ]
+  },
+  {
     "id": "column",
     "components": [
       "text",
