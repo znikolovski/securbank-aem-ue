@@ -13,6 +13,17 @@ export default function decorate(block) {
           if (picWrapper && picWrapper.children.length === 1) {
             picWrapper.classList.add('columns-highlight-img-col');
           }
+          return;
+        }
+        // Handle image reference links (DAM asset URLs rendered as <a> tags)
+        const link = col.querySelector('a[href]');
+        if (link && /\.(jpeg|jpg|png|gif|webp|svg)$/i.test(new URL(link.href, window.location).pathname)) {
+          const img = document.createElement('img');
+          img.src = link.href;
+          img.alt = '';
+          img.loading = 'lazy';
+          col.replaceChildren(img);
+          col.classList.add('columns-highlight-img-col');
         }
       });
     });
